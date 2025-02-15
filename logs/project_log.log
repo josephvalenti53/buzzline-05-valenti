@@ -2302,3 +2302,949 @@
 2025-02-14 19:44:34.101 | WARNING  | __main__:main:191 - WARNING: Producer interrupted by user.
 2025-02-14 19:44:34.107 | INFO     | __main__:main:197 - Kafka producer closed.
 2025-02-14 19:44:34.108 | INFO     | __main__:main:198 - TRY/FINALLY: Producer shutting down.
+2025-02-14 19:47:38.627 | INFO     | utils.utils_logger:<module>:43 - Logging to file: logs\project_log.log
+2025-02-14 19:47:38.632 | INFO     | __main__:main:124 - Starting Producer to run continuously.
+2025-02-14 19:47:38.633 | INFO     | __main__:main:125 - Things can fail or get interrupted, so use a try block.
+2025-02-14 19:47:38.634 | INFO     | __main__:main:126 - Moved .env variables into a utils config module.
+2025-02-14 19:47:38.634 | INFO     | __main__:main:128 - STEP 1. Read required environment variables.
+2025-02-14 19:47:38.635 | INFO     | utils.utils_config:get_message_interval_seconds_as_int:65 - MESSAGE_INTERVAL_SECONDS: 5
+2025-02-14 19:47:38.636 | INFO     | utils.utils_config:get_kafka_topic:58 - BUZZ_TOPIC: buzzline
+2025-02-14 19:47:38.637 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-14 19:47:38.640 | INFO     | utils.utils_config:get_base_data_path:80 - BASE_DATA_DIR: C:\Users\18165\Documents\44671_Streaming\buzzline-05-valenti\data
+2025-02-14 19:47:38.641 | INFO     | utils.utils_config:get_live_data_path:89 - LIVE_DATA_PATH: C:\Users\18165\Documents\44671_Streaming\buzzline-05-valenti\data\project_live.json
+2025-02-14 19:47:38.642 | INFO     | __main__:main:139 - STEP 2. Delete the live data file if exists to start fresh.
+2025-02-14 19:47:38.648 | INFO     | __main__:main:144 - Deleted existing live data file.
+2025-02-14 19:47:38.658 | INFO     | __main__:main:146 - STEP 3. Build the path folders to the live data file if needed.
+2025-02-14 19:47:38.660 | INFO     | __main__:main:152 - STEP 4. Try to create a Kafka producer and topic.
+2025-02-14 19:47:38.662 | INFO     | utils.utils_config:get_zookeeper_address:44 - ZOOKEEPER_ADDRESS: Localhost:2181
+2025-02-14 19:47:38.716 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:47 - Zookeeper is ready at Localhost:2181.
+2025-02-14 19:47:38.718 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-14 19:47:39.063 | INFO     | utils.utils_producer:check_kafka_service_is_ready:66 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': 'NtpAZJ9dSg2PFZ4v9xFChg', 'controller_id': 1001}
+2025-02-14 19:47:39.184 | INFO     | __main__:main:161 - Kafka producer connected to Localhost:9092
+2025-02-14 19:47:39.192 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-14 19:47:39.551 | INFO     | utils.utils_producer:create_kafka_topic:150 - Topic 'buzzline' exists. Clearing it out...
+2025-02-14 19:47:39.552 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-14 19:47:39.901 | ERROR    | utils.utils_producer:clear_kafka_topic:226 - Error managing retention for topic 'buzzline': list indices must be integers or slices, not ConfigResource
+2025-02-14 19:47:39.905 | INFO     | __main__:main:169 - Kafka topic 'buzzline' is ready.
+2025-02-14 19:47:39.907 | INFO     | __main__:main:174 - STEP 5. Generate messages continuously.
+2025-02-14 19:47:39.908 | INFO     | __main__:main:177 - {'message': 'I just saw Python! It was funny.', 'author': 'Alice', 'timestamp': '2025-02-14 19:47:39', 'category': 'tech', 'sentiment': 0.03, 'keyword_mentioned': 'Python', 'message_length': 32}
+2025-02-14 19:47:39.911 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw Python! It was funny.', 'author': 'Alice', 'timestamp': '2025-02-14 19:47:39', 'category': 'tech', 'sentiment': 0.03, 'keyword_mentioned': 'Python', 'message_length': 32}
+2025-02-14 19:47:39.914 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw Python! It was funny.', 'author': 'Alice', 'timestamp': '2025-02-14 19:47:39', 'category': 'tech', 'sentiment': 0.03, 'keyword_mentioned': 'Python', 'message_length': 32}
+2025-02-14 19:47:44.917 | INFO     | __main__:main:177 - {'message': 'I just found a story! It was boring.', 'author': 'Bob', 'timestamp': '2025-02-14 19:47:44', 'category': 'other', 'sentiment': 0.76, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:47:44.924 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found a story! It was boring.', 'author': 'Bob', 'timestamp': '2025-02-14 19:47:44', 'category': 'other', 'sentiment': 0.76, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:47:44.927 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found a story! It was boring.', 'author': 'Bob', 'timestamp': '2025-02-14 19:47:44', 'category': 'other', 'sentiment': 0.76, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:47:49.930 | INFO     | __main__:main:177 - {'message': 'I just saw a trick! It was boring.', 'author': 'Alice', 'timestamp': '2025-02-14 19:47:49', 'category': 'other', 'sentiment': 0.01, 'keyword_mentioned': 'other', 'message_length': 34}
+2025-02-14 19:47:49.932 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw a trick! It was boring.', 'author': 'Alice', 'timestamp': '2025-02-14 19:47:49', 'category': 'other', 'sentiment': 0.01, 'keyword_mentioned': 'other', 'message_length': 34}
+2025-02-14 19:47:49.936 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw a trick! It was boring.', 'author': 'Alice', 'timestamp': '2025-02-14 19:47:49', 'category': 'other', 'sentiment': 0.01, 'keyword_mentioned': 'other', 'message_length': 34}
+2025-02-14 19:47:50.227 | INFO     | utils.utils_logger:<module>:43 - Logging to file: logs\project_log.log
+2025-02-14 19:47:50.261 | INFO     | __main__:main:129 - Starting Consumer to run continuously.
+2025-02-14 19:47:50.262 | INFO     | utils.utils_config:get_kafka_topic:58 - BUZZ_TOPIC: buzzline
+2025-02-14 19:47:50.263 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-14 19:47:50.265 | INFO     | utils.utils_config:get_kafka_consumer_group_id:72 - BUZZ_CONSUMER_GROUP_ID: buzz_group
+2025-02-14 19:47:50.265 | INFO     | utils.utils_config:get_message_interval_seconds_as_int:65 - MESSAGE_INTERVAL_SECONDS: 5
+2025-02-14 19:47:50.267 | INFO     | __main__:main:137 - SUCCESS: Read environment variables.
+2025-02-14 19:47:50.272 | INFO     | __main__:main:145 - SUCCESS: Deleted prior DB file.
+2025-02-14 19:47:50.274 | INFO     | __main__:init_db:17 - Initializing database.
+2025-02-14 19:47:50.324 | INFO     | __main__:init_db:35 - Database initialized successfully.
+2025-02-14 19:47:50.325 | INFO     | __main__:consume_messages_from_kafka:80 - Starting Kafka consumer...
+2025-02-14 19:47:50.327 | INFO     | utils.utils_config:get_zookeeper_address:44 - ZOOKEEPER_ADDRESS: Localhost:2181
+2025-02-14 19:47:50.346 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:47 - Zookeeper is ready at Localhost:2181.
+2025-02-14 19:47:50.348 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-14 19:47:50.689 | INFO     | utils.utils_producer:check_kafka_service_is_ready:66 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': 'NtpAZJ9dSg2PFZ4v9xFChg', 'controller_id': 1001}
+2025-02-14 19:47:50.691 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-14 19:47:50.693 | INFO     | utils.utils_consumer:create_kafka_consumer:44 - Creating Kafka consumer. Topic='buzzline' and group ID='buzz_group'.
+2025-02-14 19:47:50.803 | INFO     | utils.utils_consumer:create_kafka_consumer:59 - Kafka consumer created successfully.
+2025-02-14 19:47:50.803 | INFO     | utils.utils_config:get_kafka_broker_address:51 - KAFKA_BROKER_ADDRESS: Localhost:9092
+2025-02-14 19:47:51.127 | INFO     | utils.utils_producer:is_topic_available:252 - Topic 'buzzline' already exists. 
+2025-02-14 19:47:51.129 | INFO     | __main__:consume_messages_from_kafka:102 - Kafka topic 'buzzline' is ready.
+2025-02-14 19:47:54.965 | INFO     | __main__:main:177 - {'message': 'I just saw an app! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:47:54', 'category': 'other', 'sentiment': 0.73, 'keyword_mentioned': 'other', 'message_length': 34}
+2025-02-14 19:47:54.976 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw an app! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:47:54', 'category': 'other', 'sentiment': 0.73, 'keyword_mentioned': 'other', 'message_length': 34}
+2025-02-14 19:47:54.994 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw an app! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:47:54', 'category': 'other', 'sentiment': 0.73, 'keyword_mentioned': 'other', 'message_length': 34}
+2025-02-14 19:47:57.857 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:47:57.883 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:47:57.933 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:47:57.973 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:47:57.990 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:47:58.017 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:47:58.043 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:47:58.082 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:47:58.150 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:47:58.187 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:47:58.332 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:47:58.356 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:47:58.440 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:47:58.592 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:47:58.672 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:47:58.733 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:47:58.761 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:47:58.816 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:47:58.841 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:47:58.888 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:47:58.912 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:47:58.959 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:47:59.006 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:47:59.041 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:47:59.095 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:47:59.123 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:47:59.143 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:47:59.181 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:47:59.211 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:47:59.241 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:47:59.271 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:47:59.295 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:47:59.320 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:47:59.347 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:47:59.378 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:47:59.405 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:47:59.431 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:47:59.464 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:47:59.496 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:47:59.539 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:47:59.569 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:47:59.596 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:47:59.642 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:47:59.673 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:47:59.698 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:47:59.722 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:47:59.747 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:47:59.781 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:47:59.806 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:47:59.834 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:47:59.857 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:47:59.873 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:47:59.895 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:47:59.938 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:47:59.962 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:47:59.990 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:00.019 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:00.029 | INFO     | __main__:main:177 - {'message': 'I just found a meme! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:48:00', 'category': 'humor', 'sentiment': 0.76, 'keyword_mentioned': 'meme', 'message_length': 36}
+2025-02-14 19:48:00.062 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:00.091 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:00.109 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:00.057 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found a meme! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:48:00', 'category': 'humor', 'sentiment': 0.76, 'keyword_mentioned': 'meme', 'message_length': 36}
+2025-02-14 19:48:00.125 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found a meme! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:48:00', 'category': 'humor', 'sentiment': 0.76, 'keyword_mentioned': 'meme', 'message_length': 36}
+2025-02-14 19:48:00.138 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:00.177 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:00.198 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:00.231 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:00.291 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:00.318 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:00.341 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:00.381 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:00.405 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:00.441 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:00.464 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:00.495 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:00.519 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:00.555 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:00.590 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:00.615 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:00.662 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:00.691 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:00.719 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:00.746 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:00.764 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:00.799 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:00.892 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:00.945 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:00.993 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:01.021 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:01.051 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:01.074 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:01.113 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:01.154 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:01.178 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:01.227 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:01.263 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:01.290 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:01.324 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:01.351 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:01.391 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:01.412 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:01.455 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:01.488 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:01.519 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:01.546 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:01.586 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:01.661 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:01.709 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:01.737 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:01.770 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:01.804 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:01.829 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:01.862 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:01.888 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:01.922 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:01.952 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:02.009 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:02.125 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:02.160 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:02.207 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:02.245 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:02.276 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:02.293 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:02.312 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:02.330 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:02.361 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:02.379 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:02.461 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:02.496 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:02.525 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:02.557 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:02.585 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:02.627 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:02.644 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:02.691 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:02.814 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:02.876 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:02.905 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:02.962 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:03.006 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:03.156 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:03.354 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:03.570 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:03.759 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:03.843 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:03.912 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:03.963 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:04.005 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:04.048 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:04.089 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:04.129 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:04.178 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:04.213 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:04.249 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:04.298 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:04.328 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:04.383 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:04.424 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:04.479 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:04.514 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:04.566 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:04.596 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:04.624 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:04.640 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:04.661 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:04.680 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:04.699 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:04.729 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:04.751 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:04.766 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:04.793 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:04.867 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:04.927 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:05.099 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:05.174 | INFO     | __main__:main:177 - {'message': 'I just saw a trick! It was funny.', 'author': 'Eve', 'timestamp': '2025-02-14 19:48:05', 'category': 'other', 'sentiment': 0.43, 'keyword_mentioned': 'other', 'message_length': 33}
+2025-02-14 19:48:05.195 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw a trick! It was funny.', 'author': 'Eve', 'timestamp': '2025-02-14 19:48:05', 'category': 'other', 'sentiment': 0.43, 'keyword_mentioned': 'other', 'message_length': 33}
+2025-02-14 19:48:05.199 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw a trick! It was funny.', 'author': 'Eve', 'timestamp': '2025-02-14 19:48:05', 'category': 'other', 'sentiment': 0.43, 'keyword_mentioned': 'other', 'message_length': 33}
+2025-02-14 19:48:05.217 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:05.257 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:05.301 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:05.351 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:05.442 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:05.482 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:05.528 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:05.574 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:05.618 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:05.675 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:05.710 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:05.756 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:05.793 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:05.839 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:05.855 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:05.876 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:05.916 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:05.944 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:05.973 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:06.011 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:06.054 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:06.091 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:06.135 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:06.161 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:06.184 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:06.217 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:06.244 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:06.284 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:06.308 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:06.343 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:06.367 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:06.414 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:06.450 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:06.468 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:06.499 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:06.520 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:06.605 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:06.651 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:06.684 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:06.734 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:06.759 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:06.811 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:06.844 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:06.866 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:06.906 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:06.923 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:06.946 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:06.998 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:07.033 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:07.052 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:07.067 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:07.092 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:07.154 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:07.170 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:07.207 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:07.253 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:07.291 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:07.323 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:07.345 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:07.368 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:07.407 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:07.446 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:07.487 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:07.510 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:07.552 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:07.585 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:07.651 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:07.699 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:07.735 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:07.809 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:07.842 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:07.867 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:07.896 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:07.936 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:07.975 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:08.028 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:08.072 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:08.127 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:08.163 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:08.193 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:08.226 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:08.266 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:08.301 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:08.328 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:08.361 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:08.399 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:08.435 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:08.470 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:08.524 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:08.560 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:08.589 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:08.623 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:08.657 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:08.719 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:08.738 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:08.789 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:08.852 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:08.895 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:08.929 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:08.957 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:09.012 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:09.061 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:09.110 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:09.149 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:09.219 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:09.252 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:09.291 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:09.323 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:09.352 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:09.392 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:09.444 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:09.478 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:09.509 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:09.536 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:09.587 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:09.640 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:09.673 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:09.724 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:09.759 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:09.862 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:09.893 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:10.230 | INFO     | __main__:main:177 - {'message': 'I just tried a meme! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:48:10', 'category': 'humor', 'sentiment': 0.97, 'keyword_mentioned': 'meme', 'message_length': 36}
+2025-02-14 19:48:10.288 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried a meme! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:48:10', 'category': 'humor', 'sentiment': 0.97, 'keyword_mentioned': 'meme', 'message_length': 36}
+2025-02-14 19:48:10.305 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried a meme! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:48:10', 'category': 'humor', 'sentiment': 0.97, 'keyword_mentioned': 'meme', 'message_length': 36}
+2025-02-14 19:48:10.335 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:15.323 | INFO     | __main__:main:177 - {'message': 'I just tried Python! It was funny.', 'author': 'Eve', 'timestamp': '2025-02-14 19:48:15', 'category': 'tech', 'sentiment': 0.02, 'keyword_mentioned': 'Python', 'message_length': 34}
+2025-02-14 19:48:15.326 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried Python! It was funny.', 'author': 'Eve', 'timestamp': '2025-02-14 19:48:15', 'category': 'tech', 'sentiment': 0.02, 'keyword_mentioned': 'Python', 'message_length': 34}
+2025-02-14 19:48:15.328 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried Python! It was funny.', 'author': 'Eve', 'timestamp': '2025-02-14 19:48:15', 'category': 'tech', 'sentiment': 0.02, 'keyword_mentioned': 'Python', 'message_length': 34}
+2025-02-14 19:48:15.344 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:20.330 | INFO     | __main__:main:177 - {'message': 'I just loved a movie! It was amazing.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:48:20', 'category': 'entertainment', 'sentiment': 0.85, 'keyword_mentioned': 'movie', 'message_length': 37}
+2025-02-14 19:48:20.332 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved a movie! It was amazing.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:48:20', 'category': 'entertainment', 'sentiment': 0.85, 'keyword_mentioned': 'movie', 'message_length': 37}
+2025-02-14 19:48:20.335 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved a movie! It was amazing.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:48:20', 'category': 'entertainment', 'sentiment': 0.85, 'keyword_mentioned': 'movie', 'message_length': 37}
+2025-02-14 19:48:20.357 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:48:25.340 | INFO     | __main__:main:177 - {'message': 'I just loved a movie! It was amazing.', 'author': 'Alice', 'timestamp': '2025-02-14 19:48:25', 'category': 'entertainment', 'sentiment': 0.03, 'keyword_mentioned': 'movie', 'message_length': 37}
+2025-02-14 19:48:25.345 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved a movie! It was amazing.', 'author': 'Alice', 'timestamp': '2025-02-14 19:48:25', 'category': 'entertainment', 'sentiment': 0.03, 'keyword_mentioned': 'movie', 'message_length': 37}
+2025-02-14 19:48:25.410 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:25.378 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved a movie! It was amazing.', 'author': 'Alice', 'timestamp': '2025-02-14 19:48:25', 'category': 'entertainment', 'sentiment': 0.03, 'keyword_mentioned': 'movie', 'message_length': 37}
+2025-02-14 19:48:30.436 | INFO     | __main__:main:177 - {'message': 'I just saw game! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 19:48:30', 'category': 'gaming', 'sentiment': 0.18, 'keyword_mentioned': 'game', 'message_length': 30}
+2025-02-14 19:48:30.437 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw game! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 19:48:30', 'category': 'gaming', 'sentiment': 0.18, 'keyword_mentioned': 'game', 'message_length': 30}
+2025-02-14 19:48:30.441 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw game! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 19:48:30', 'category': 'gaming', 'sentiment': 0.18, 'keyword_mentioned': 'game', 'message_length': 30}
+2025-02-14 19:48:30.474 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:35.443 | INFO     | __main__:main:177 - {'message': 'I just shared JavaScript! It was boring.', 'author': 'Bob', 'timestamp': '2025-02-14 19:48:35', 'category': 'tech', 'sentiment': 0.19, 'keyword_mentioned': 'JavaScript', 'message_length': 40}
+2025-02-14 19:48:35.446 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just shared JavaScript! It was boring.', 'author': 'Bob', 'timestamp': '2025-02-14 19:48:35', 'category': 'tech', 'sentiment': 0.19, 'keyword_mentioned': 'JavaScript', 'message_length': 40}
+2025-02-14 19:48:35.451 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just shared JavaScript! It was boring.', 'author': 'Bob', 'timestamp': '2025-02-14 19:48:35', 'category': 'tech', 'sentiment': 0.19, 'keyword_mentioned': 'JavaScript', 'message_length': 40}
+2025-02-14 19:48:35.488 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:48:40.568 | INFO     | __main__:main:177 - {'message': 'I just shared a movie! It was weird.', 'author': 'Eve', 'timestamp': '2025-02-14 19:48:40', 'category': 'entertainment', 'sentiment': 0.55, 'keyword_mentioned': 'movie', 'message_length': 36}
+2025-02-14 19:48:40.621 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just shared a movie! It was weird.', 'author': 'Eve', 'timestamp': '2025-02-14 19:48:40', 'category': 'entertainment', 'sentiment': 0.55, 'keyword_mentioned': 'movie', 'message_length': 36}
+2025-02-14 19:48:40.675 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just shared a movie! It was weird.', 'author': 'Eve', 'timestamp': '2025-02-14 19:48:40', 'category': 'entertainment', 'sentiment': 0.55, 'keyword_mentioned': 'movie', 'message_length': 36}
+2025-02-14 19:48:40.694 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:48:45.678 | INFO     | __main__:main:177 - {'message': 'I just loved recipe! It was boring.', 'author': 'Alice', 'timestamp': '2025-02-14 19:48:45', 'category': 'food', 'sentiment': 0.53, 'keyword_mentioned': 'recipe', 'message_length': 35}
+2025-02-14 19:48:45.680 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved recipe! It was boring.', 'author': 'Alice', 'timestamp': '2025-02-14 19:48:45', 'category': 'food', 'sentiment': 0.53, 'keyword_mentioned': 'recipe', 'message_length': 35}
+2025-02-14 19:48:45.683 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved recipe! It was boring.', 'author': 'Alice', 'timestamp': '2025-02-14 19:48:45', 'category': 'food', 'sentiment': 0.53, 'keyword_mentioned': 'recipe', 'message_length': 35}
+2025-02-14 19:48:45.703 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:50.689 | INFO     | __main__:main:177 - {'message': 'I just loved game! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 19:48:50', 'category': 'gaming', 'sentiment': 0.62, 'keyword_mentioned': 'game', 'message_length': 32}
+2025-02-14 19:48:50.694 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved game! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 19:48:50', 'category': 'gaming', 'sentiment': 0.62, 'keyword_mentioned': 'game', 'message_length': 32}
+2025-02-14 19:48:50.703 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved game! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 19:48:50', 'category': 'gaming', 'sentiment': 0.62, 'keyword_mentioned': 'game', 'message_length': 32}
+2025-02-14 19:48:50.742 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:48:55.727 | INFO     | __main__:main:177 - {'message': 'I just tried a trick! It was exciting.', 'author': 'Eve', 'timestamp': '2025-02-14 19:48:55', 'category': 'other', 'sentiment': 0.65, 'keyword_mentioned': 'other', 'message_length': 38}
+2025-02-14 19:48:55.738 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried a trick! It was exciting.', 'author': 'Eve', 'timestamp': '2025-02-14 19:48:55', 'category': 'other', 'sentiment': 0.65, 'keyword_mentioned': 'other', 'message_length': 38}
+2025-02-14 19:48:55.769 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried a trick! It was exciting.', 'author': 'Eve', 'timestamp': '2025-02-14 19:48:55', 'category': 'other', 'sentiment': 0.65, 'keyword_mentioned': 'other', 'message_length': 38}
+2025-02-14 19:48:55.798 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:49:00.793 | INFO     | __main__:main:177 - {'message': 'I just saw a meme! It was boring.', 'author': 'Bob', 'timestamp': '2025-02-14 19:49:00', 'category': 'humor', 'sentiment': 0.16, 'keyword_mentioned': 'meme', 'message_length': 33}
+2025-02-14 19:49:00.795 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw a meme! It was boring.', 'author': 'Bob', 'timestamp': '2025-02-14 19:49:00', 'category': 'humor', 'sentiment': 0.16, 'keyword_mentioned': 'meme', 'message_length': 33}
+2025-02-14 19:49:00.797 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw a meme! It was boring.', 'author': 'Bob', 'timestamp': '2025-02-14 19:49:00', 'category': 'humor', 'sentiment': 0.16, 'keyword_mentioned': 'meme', 'message_length': 33}
+2025-02-14 19:49:00.828 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:49:05.803 | INFO     | __main__:main:177 - {'message': 'I just saw a movie! It was funny.', 'author': 'Eve', 'timestamp': '2025-02-14 19:49:05', 'category': 'entertainment', 'sentiment': 0.1, 'keyword_mentioned': 'movie', 'message_length': 33}
+2025-02-14 19:49:05.805 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw a movie! It was funny.', 'author': 'Eve', 'timestamp': '2025-02-14 19:49:05', 'category': 'entertainment', 'sentiment': 0.1, 'keyword_mentioned': 'movie', 'message_length': 33}
+2025-02-14 19:49:05.808 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw a movie! It was funny.', 'author': 'Eve', 'timestamp': '2025-02-14 19:49:05', 'category': 'entertainment', 'sentiment': 0.1, 'keyword_mentioned': 'movie', 'message_length': 33}
+2025-02-14 19:49:05.852 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:49:10.810 | INFO     | __main__:main:177 - {'message': 'I just found a trick! It was amazing.', 'author': 'Alice', 'timestamp': '2025-02-14 19:49:10', 'category': 'other', 'sentiment': 0.71, 'keyword_mentioned': 'other', 'message_length': 37}
+2025-02-14 19:49:10.813 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found a trick! It was amazing.', 'author': 'Alice', 'timestamp': '2025-02-14 19:49:10', 'category': 'other', 'sentiment': 0.71, 'keyword_mentioned': 'other', 'message_length': 37}
+2025-02-14 19:49:10.816 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found a trick! It was amazing.', 'author': 'Alice', 'timestamp': '2025-02-14 19:49:10', 'category': 'other', 'sentiment': 0.71, 'keyword_mentioned': 'other', 'message_length': 37}
+2025-02-14 19:49:10.860 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:49:15.819 | INFO     | __main__:main:177 - {'message': 'I just loved an app! It was funny.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:49:15', 'category': 'other', 'sentiment': 0.45, 'keyword_mentioned': 'other', 'message_length': 34}
+2025-02-14 19:49:15.821 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved an app! It was funny.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:49:15', 'category': 'other', 'sentiment': 0.45, 'keyword_mentioned': 'other', 'message_length': 34}
+2025-02-14 19:49:15.824 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved an app! It was funny.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:49:15', 'category': 'other', 'sentiment': 0.45, 'keyword_mentioned': 'other', 'message_length': 34}
+2025-02-14 19:49:15.850 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:49:20.826 | INFO     | __main__:main:177 - {'message': 'I just tried Python! It was weird.', 'author': 'Eve', 'timestamp': '2025-02-14 19:49:20', 'category': 'tech', 'sentiment': 0.48, 'keyword_mentioned': 'Python', 'message_length': 34}
+2025-02-14 19:49:20.828 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried Python! It was weird.', 'author': 'Eve', 'timestamp': '2025-02-14 19:49:20', 'category': 'tech', 'sentiment': 0.48, 'keyword_mentioned': 'Python', 'message_length': 34}
+2025-02-14 19:49:20.832 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried Python! It was weird.', 'author': 'Eve', 'timestamp': '2025-02-14 19:49:20', 'category': 'tech', 'sentiment': 0.48, 'keyword_mentioned': 'Python', 'message_length': 34}
+2025-02-14 19:49:20.877 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:49:25.850 | INFO     | __main__:main:177 - {'message': 'I just found game! It was weird.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:49:25', 'category': 'gaming', 'sentiment': 0.26, 'keyword_mentioned': 'game', 'message_length': 32}
+2025-02-14 19:49:25.876 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found game! It was weird.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:49:25', 'category': 'gaming', 'sentiment': 0.26, 'keyword_mentioned': 'game', 'message_length': 32}
+2025-02-14 19:49:25.888 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found game! It was weird.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:49:25', 'category': 'gaming', 'sentiment': 0.26, 'keyword_mentioned': 'game', 'message_length': 32}
+2025-02-14 19:49:25.913 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:49:30.903 | INFO     | __main__:main:177 - {'message': 'I just shared an app! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:49:30', 'category': 'other', 'sentiment': 0.2, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:49:30.905 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just shared an app! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:49:30', 'category': 'other', 'sentiment': 0.2, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:49:30.907 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just shared an app! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:49:30', 'category': 'other', 'sentiment': 0.2, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:49:30.972 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:49:35.910 | INFO     | __main__:main:177 - {'message': 'I just loved a movie! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:49:35', 'category': 'entertainment', 'sentiment': 0.48, 'keyword_mentioned': 'movie', 'message_length': 38}
+2025-02-14 19:49:35.911 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved a movie! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:49:35', 'category': 'entertainment', 'sentiment': 0.48, 'keyword_mentioned': 'movie', 'message_length': 38}
+2025-02-14 19:49:35.914 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved a movie! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:49:35', 'category': 'entertainment', 'sentiment': 0.48, 'keyword_mentioned': 'movie', 'message_length': 38}
+2025-02-14 19:49:35.932 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:49:40.930 | INFO     | __main__:main:177 - {'message': 'I just tried game! It was funny.', 'author': 'Bob', 'timestamp': '2025-02-14 19:49:40', 'category': 'gaming', 'sentiment': 0.72, 'keyword_mentioned': 'game', 'message_length': 32}
+2025-02-14 19:49:40.957 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried game! It was funny.', 'author': 'Bob', 'timestamp': '2025-02-14 19:49:40', 'category': 'gaming', 'sentiment': 0.72, 'keyword_mentioned': 'game', 'message_length': 32}
+2025-02-14 19:49:41.000 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:49:40.984 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried game! It was funny.', 'author': 'Bob', 'timestamp': '2025-02-14 19:49:40', 'category': 'gaming', 'sentiment': 0.72, 'keyword_mentioned': 'game', 'message_length': 32}
+2025-02-14 19:49:46.011 | INFO     | __main__:main:177 - {'message': 'I just tried JavaScript! It was boring.', 'author': 'Bob', 'timestamp': '2025-02-14 19:49:46', 'category': 'tech', 'sentiment': 0.14, 'keyword_mentioned': 'JavaScript', 'message_length': 39}
+2025-02-14 19:49:46.015 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried JavaScript! It was boring.', 'author': 'Bob', 'timestamp': '2025-02-14 19:49:46', 'category': 'tech', 'sentiment': 0.14, 'keyword_mentioned': 'JavaScript', 'message_length': 39}
+2025-02-14 19:49:46.021 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried JavaScript! It was boring.', 'author': 'Bob', 'timestamp': '2025-02-14 19:49:46', 'category': 'tech', 'sentiment': 0.14, 'keyword_mentioned': 'JavaScript', 'message_length': 39}
+2025-02-14 19:49:46.068 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:49:51.024 | INFO     | __main__:main:177 - {'message': 'I just found an app! It was amazing.', 'author': 'Alice', 'timestamp': '2025-02-14 19:49:51', 'category': 'other', 'sentiment': 0.35, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:49:51.026 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found an app! It was amazing.', 'author': 'Alice', 'timestamp': '2025-02-14 19:49:51', 'category': 'other', 'sentiment': 0.35, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:49:51.028 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found an app! It was amazing.', 'author': 'Alice', 'timestamp': '2025-02-14 19:49:51', 'category': 'other', 'sentiment': 0.35, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:49:51.056 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:49:56.042 | INFO     | __main__:main:177 - {'message': 'I just shared a meme! It was amazing.', 'author': 'Alice', 'timestamp': '2025-02-14 19:49:56', 'category': 'humor', 'sentiment': 0.1, 'keyword_mentioned': 'meme', 'message_length': 37}
+2025-02-14 19:49:56.056 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just shared a meme! It was amazing.', 'author': 'Alice', 'timestamp': '2025-02-14 19:49:56', 'category': 'humor', 'sentiment': 0.1, 'keyword_mentioned': 'meme', 'message_length': 37}
+2025-02-14 19:49:56.080 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just shared a meme! It was amazing.', 'author': 'Alice', 'timestamp': '2025-02-14 19:49:56', 'category': 'humor', 'sentiment': 0.1, 'keyword_mentioned': 'meme', 'message_length': 37}
+2025-02-14 19:49:56.101 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:50:01.108 | INFO     | __main__:main:177 - {'message': 'I just shared JavaScript! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:50:01', 'category': 'tech', 'sentiment': 0.52, 'keyword_mentioned': 'JavaScript', 'message_length': 41}
+2025-02-14 19:50:01.110 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just shared JavaScript! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:50:01', 'category': 'tech', 'sentiment': 0.52, 'keyword_mentioned': 'JavaScript', 'message_length': 41}
+2025-02-14 19:50:01.114 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just shared JavaScript! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:50:01', 'category': 'tech', 'sentiment': 0.52, 'keyword_mentioned': 'JavaScript', 'message_length': 41}
+2025-02-14 19:50:01.143 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:50:06.151 | INFO     | __main__:main:177 - {'message': 'I just shared travel! It was weird.', 'author': 'Bob', 'timestamp': '2025-02-14 19:50:06', 'category': 'travel', 'sentiment': 0.89, 'keyword_mentioned': 'travel', 'message_length': 35}
+2025-02-14 19:50:06.159 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just shared travel! It was weird.', 'author': 'Bob', 'timestamp': '2025-02-14 19:50:06', 'category': 'travel', 'sentiment': 0.89, 'keyword_mentioned': 'travel', 'message_length': 35}
+2025-02-14 19:50:06.170 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just shared travel! It was weird.', 'author': 'Bob', 'timestamp': '2025-02-14 19:50:06', 'category': 'travel', 'sentiment': 0.89, 'keyword_mentioned': 'travel', 'message_length': 35}
+2025-02-14 19:50:06.198 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:50:11.183 | INFO     | __main__:main:177 - {'message': 'I just shared Python! It was amazing.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:50:11', 'category': 'tech', 'sentiment': 0.33, 'keyword_mentioned': 'Python', 'message_length': 37}
+2025-02-14 19:50:11.189 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just shared Python! It was amazing.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:50:11', 'category': 'tech', 'sentiment': 0.33, 'keyword_mentioned': 'Python', 'message_length': 37}
+2025-02-14 19:50:11.199 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just shared Python! It was amazing.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:50:11', 'category': 'tech', 'sentiment': 0.33, 'keyword_mentioned': 'Python', 'message_length': 37}
+2025-02-14 19:50:11.218 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:50:16.218 | INFO     | __main__:main:177 - {'message': 'I just tried game! It was boring.', 'author': 'Bob', 'timestamp': '2025-02-14 19:50:16', 'category': 'gaming', 'sentiment': 0.64, 'keyword_mentioned': 'game', 'message_length': 33}
+2025-02-14 19:50:16.220 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried game! It was boring.', 'author': 'Bob', 'timestamp': '2025-02-14 19:50:16', 'category': 'gaming', 'sentiment': 0.64, 'keyword_mentioned': 'game', 'message_length': 33}
+2025-02-14 19:50:16.222 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried game! It was boring.', 'author': 'Bob', 'timestamp': '2025-02-14 19:50:16', 'category': 'gaming', 'sentiment': 0.64, 'keyword_mentioned': 'game', 'message_length': 33}
+2025-02-14 19:50:16.251 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:50:21.225 | INFO     | __main__:main:177 - {'message': 'I just saw a trick! It was exciting.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:50:21', 'category': 'other', 'sentiment': 0.15, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:50:21.227 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw a trick! It was exciting.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:50:21', 'category': 'other', 'sentiment': 0.15, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:50:21.229 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw a trick! It was exciting.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:50:21', 'category': 'other', 'sentiment': 0.15, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:50:21.261 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:50:26.232 | INFO     | __main__:main:177 - {'message': 'I just loved recipe! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:50:26', 'category': 'food', 'sentiment': 0.44, 'keyword_mentioned': 'recipe', 'message_length': 35}
+2025-02-14 19:50:26.235 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved recipe! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:50:26', 'category': 'food', 'sentiment': 0.44, 'keyword_mentioned': 'recipe', 'message_length': 35}
+2025-02-14 19:50:26.240 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved recipe! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:50:26', 'category': 'food', 'sentiment': 0.44, 'keyword_mentioned': 'recipe', 'message_length': 35}
+2025-02-14 19:50:26.275 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:50:31.248 | INFO     | __main__:main:177 - {'message': 'I just found a movie! It was weird.', 'author': 'Eve', 'timestamp': '2025-02-14 19:50:31', 'category': 'entertainment', 'sentiment': 0.17, 'keyword_mentioned': 'movie', 'message_length': 35}
+2025-02-14 19:50:31.250 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found a movie! It was weird.', 'author': 'Eve', 'timestamp': '2025-02-14 19:50:31', 'category': 'entertainment', 'sentiment': 0.17, 'keyword_mentioned': 'movie', 'message_length': 35}
+2025-02-14 19:50:31.252 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found a movie! It was weird.', 'author': 'Eve', 'timestamp': '2025-02-14 19:50:31', 'category': 'entertainment', 'sentiment': 0.17, 'keyword_mentioned': 'movie', 'message_length': 35}
+2025-02-14 19:50:31.285 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:50:36.256 | INFO     | __main__:main:177 - {'message': 'I just shared JavaScript! It was boring.', 'author': 'Eve', 'timestamp': '2025-02-14 19:50:36', 'category': 'tech', 'sentiment': 0.74, 'keyword_mentioned': 'JavaScript', 'message_length': 40}
+2025-02-14 19:50:36.260 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just shared JavaScript! It was boring.', 'author': 'Eve', 'timestamp': '2025-02-14 19:50:36', 'category': 'tech', 'sentiment': 0.74, 'keyword_mentioned': 'JavaScript', 'message_length': 40}
+2025-02-14 19:50:36.269 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just shared JavaScript! It was boring.', 'author': 'Eve', 'timestamp': '2025-02-14 19:50:36', 'category': 'tech', 'sentiment': 0.74, 'keyword_mentioned': 'JavaScript', 'message_length': 40}
+2025-02-14 19:50:36.305 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:50:41.283 | INFO     | __main__:main:177 - {'message': 'I just shared a story! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:50:41', 'category': 'other', 'sentiment': 0.59, 'keyword_mentioned': 'other', 'message_length': 38}
+2025-02-14 19:50:41.286 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just shared a story! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:50:41', 'category': 'other', 'sentiment': 0.59, 'keyword_mentioned': 'other', 'message_length': 38}
+2025-02-14 19:50:41.289 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just shared a story! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:50:41', 'category': 'other', 'sentiment': 0.59, 'keyword_mentioned': 'other', 'message_length': 38}
+2025-02-14 19:50:41.313 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:50:46.297 | INFO     | __main__:main:177 - {'message': 'I just saw an app! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:50:46', 'category': 'other', 'sentiment': 0.48, 'keyword_mentioned': 'other', 'message_length': 34}
+2025-02-14 19:50:46.300 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw an app! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:50:46', 'category': 'other', 'sentiment': 0.48, 'keyword_mentioned': 'other', 'message_length': 34}
+2025-02-14 19:50:46.310 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw an app! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:50:46', 'category': 'other', 'sentiment': 0.48, 'keyword_mentioned': 'other', 'message_length': 34}
+2025-02-14 19:50:46.336 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:50:51.320 | INFO     | __main__:main:177 - {'message': 'I just tried Python! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:50:51', 'category': 'tech', 'sentiment': 0.01, 'keyword_mentioned': 'Python', 'message_length': 35}
+2025-02-14 19:50:51.324 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried Python! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:50:51', 'category': 'tech', 'sentiment': 0.01, 'keyword_mentioned': 'Python', 'message_length': 35}
+2025-02-14 19:50:51.329 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried Python! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:50:51', 'category': 'tech', 'sentiment': 0.01, 'keyword_mentioned': 'Python', 'message_length': 35}
+2025-02-14 19:50:51.369 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:50:56.367 | INFO     | __main__:main:177 - {'message': 'I just tried JavaScript! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:50:56', 'category': 'tech', 'sentiment': 0.91, 'keyword_mentioned': 'JavaScript', 'message_length': 39}
+2025-02-14 19:50:56.383 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried JavaScript! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:50:56', 'category': 'tech', 'sentiment': 0.91, 'keyword_mentioned': 'JavaScript', 'message_length': 39}
+2025-02-14 19:50:56.391 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried JavaScript! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:50:56', 'category': 'tech', 'sentiment': 0.91, 'keyword_mentioned': 'JavaScript', 'message_length': 39}
+2025-02-14 19:50:56.437 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:51:01.403 | INFO     | __main__:main:177 - {'message': 'I just shared a meme! It was exciting.', 'author': 'Eve', 'timestamp': '2025-02-14 19:51:01', 'category': 'humor', 'sentiment': 0.1, 'keyword_mentioned': 'meme', 'message_length': 38}
+2025-02-14 19:51:01.405 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just shared a meme! It was exciting.', 'author': 'Eve', 'timestamp': '2025-02-14 19:51:01', 'category': 'humor', 'sentiment': 0.1, 'keyword_mentioned': 'meme', 'message_length': 38}
+2025-02-14 19:51:01.407 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just shared a meme! It was exciting.', 'author': 'Eve', 'timestamp': '2025-02-14 19:51:01', 'category': 'humor', 'sentiment': 0.1, 'keyword_mentioned': 'meme', 'message_length': 38}
+2025-02-14 19:51:01.800 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:51:06.410 | INFO     | __main__:main:177 - {'message': 'I just found a story! It was weird.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:51:06', 'category': 'other', 'sentiment': 0.01, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 19:51:06.412 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found a story! It was weird.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:51:06', 'category': 'other', 'sentiment': 0.01, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 19:51:06.416 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found a story! It was weird.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:51:06', 'category': 'other', 'sentiment': 0.01, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 19:51:06.443 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:51:11.420 | INFO     | __main__:main:177 - {'message': 'I just found an app! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:51:11', 'category': 'other', 'sentiment': 0.9, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:51:11.424 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found an app! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:51:11', 'category': 'other', 'sentiment': 0.9, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:51:11.430 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found an app! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:51:11', 'category': 'other', 'sentiment': 0.9, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:51:11.569 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:51:16.446 | INFO     | __main__:main:177 - {'message': 'I just loved travel! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:51:16', 'category': 'travel', 'sentiment': 0.25, 'keyword_mentioned': 'travel', 'message_length': 37}
+2025-02-14 19:51:16.447 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved travel! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:51:16', 'category': 'travel', 'sentiment': 0.25, 'keyword_mentioned': 'travel', 'message_length': 37}
+2025-02-14 19:51:16.450 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved travel! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:51:16', 'category': 'travel', 'sentiment': 0.25, 'keyword_mentioned': 'travel', 'message_length': 37}
+2025-02-14 19:51:16.474 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:51:21.455 | INFO     | __main__:main:177 - {'message': 'I just shared JavaScript! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:51:21', 'category': 'tech', 'sentiment': 0.93, 'keyword_mentioned': 'JavaScript', 'message_length': 41}
+2025-02-14 19:51:21.457 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just shared JavaScript! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:51:21', 'category': 'tech', 'sentiment': 0.93, 'keyword_mentioned': 'JavaScript', 'message_length': 41}
+2025-02-14 19:51:21.460 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just shared JavaScript! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:51:21', 'category': 'tech', 'sentiment': 0.93, 'keyword_mentioned': 'JavaScript', 'message_length': 41}
+2025-02-14 19:51:21.490 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:51:26.470 | INFO     | __main__:main:177 - {'message': 'I just saw Python! It was funny.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:51:26', 'category': 'tech', 'sentiment': 0.85, 'keyword_mentioned': 'Python', 'message_length': 32}
+2025-02-14 19:51:26.475 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw Python! It was funny.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:51:26', 'category': 'tech', 'sentiment': 0.85, 'keyword_mentioned': 'Python', 'message_length': 32}
+2025-02-14 19:51:26.489 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw Python! It was funny.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:51:26', 'category': 'tech', 'sentiment': 0.85, 'keyword_mentioned': 'Python', 'message_length': 32}
+2025-02-14 19:51:26.506 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:51:31.495 | INFO     | __main__:main:177 - {'message': 'I just shared a trick! It was funny.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:51:31', 'category': 'other', 'sentiment': 0.88, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:51:31.501 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just shared a trick! It was funny.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:51:31', 'category': 'other', 'sentiment': 0.88, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:51:31.509 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just shared a trick! It was funny.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:51:31', 'category': 'other', 'sentiment': 0.88, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:51:31.526 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:51:36.541 | INFO     | __main__:main:177 - {'message': 'I just saw recipe! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:51:36', 'category': 'food', 'sentiment': 0.99, 'keyword_mentioned': 'recipe', 'message_length': 33}
+2025-02-14 19:51:36.553 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw recipe! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:51:36', 'category': 'food', 'sentiment': 0.99, 'keyword_mentioned': 'recipe', 'message_length': 33}
+2025-02-14 19:51:36.612 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:51:36.592 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw recipe! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:51:36', 'category': 'food', 'sentiment': 0.99, 'keyword_mentioned': 'recipe', 'message_length': 33}
+2025-02-14 19:51:41.628 | INFO     | __main__:main:177 - {'message': 'I just loved an app! It was boring.', 'author': 'Alice', 'timestamp': '2025-02-14 19:51:41', 'category': 'other', 'sentiment': 0.91, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 19:51:41.634 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved an app! It was boring.', 'author': 'Alice', 'timestamp': '2025-02-14 19:51:41', 'category': 'other', 'sentiment': 0.91, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 19:51:41.640 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved an app! It was boring.', 'author': 'Alice', 'timestamp': '2025-02-14 19:51:41', 'category': 'other', 'sentiment': 0.91, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 19:51:41.671 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:51:46.643 | INFO     | __main__:main:177 - {'message': 'I just saw a meme! It was funny.', 'author': 'Bob', 'timestamp': '2025-02-14 19:51:46', 'category': 'humor', 'sentiment': 0.3, 'keyword_mentioned': 'meme', 'message_length': 32}
+2025-02-14 19:51:46.648 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw a meme! It was funny.', 'author': 'Bob', 'timestamp': '2025-02-14 19:51:46', 'category': 'humor', 'sentiment': 0.3, 'keyword_mentioned': 'meme', 'message_length': 32}
+2025-02-14 19:51:46.656 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw a meme! It was funny.', 'author': 'Bob', 'timestamp': '2025-02-14 19:51:46', 'category': 'humor', 'sentiment': 0.3, 'keyword_mentioned': 'meme', 'message_length': 32}
+2025-02-14 19:51:46.707 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:51:51.662 | INFO     | __main__:main:177 - {'message': 'I just loved a story! It was exciting.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:51:51', 'category': 'other', 'sentiment': 0.55, 'keyword_mentioned': 'other', 'message_length': 38}
+2025-02-14 19:51:51.665 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved a story! It was exciting.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:51:51', 'category': 'other', 'sentiment': 0.55, 'keyword_mentioned': 'other', 'message_length': 38}
+2025-02-14 19:51:51.669 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved a story! It was exciting.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:51:51', 'category': 'other', 'sentiment': 0.55, 'keyword_mentioned': 'other', 'message_length': 38}
+2025-02-14 19:51:51.691 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:51:56.681 | INFO     | __main__:main:177 - {'message': 'I just shared recipe! It was boring.', 'author': 'Eve', 'timestamp': '2025-02-14 19:51:56', 'category': 'food', 'sentiment': 0.4, 'keyword_mentioned': 'recipe', 'message_length': 36}
+2025-02-14 19:51:56.684 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just shared recipe! It was boring.', 'author': 'Eve', 'timestamp': '2025-02-14 19:51:56', 'category': 'food', 'sentiment': 0.4, 'keyword_mentioned': 'recipe', 'message_length': 36}
+2025-02-14 19:51:56.716 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:51:56.690 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just shared recipe! It was boring.', 'author': 'Eve', 'timestamp': '2025-02-14 19:51:56', 'category': 'food', 'sentiment': 0.4, 'keyword_mentioned': 'recipe', 'message_length': 36}
+2025-02-14 19:52:01.720 | INFO     | __main__:main:177 - {'message': 'I just found a story! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:52:01', 'category': 'other', 'sentiment': 0.01, 'keyword_mentioned': 'other', 'message_length': 38}
+2025-02-14 19:52:01.723 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found a story! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:52:01', 'category': 'other', 'sentiment': 0.01, 'keyword_mentioned': 'other', 'message_length': 38}
+2025-02-14 19:52:01.726 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found a story! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:52:01', 'category': 'other', 'sentiment': 0.01, 'keyword_mentioned': 'other', 'message_length': 38}
+2025-02-14 19:52:01.759 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:52:06.729 | INFO     | __main__:main:177 - {'message': 'I just saw JavaScript! It was funny.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:52:06', 'category': 'tech', 'sentiment': 0.23, 'keyword_mentioned': 'JavaScript', 'message_length': 36}
+2025-02-14 19:52:06.731 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw JavaScript! It was funny.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:52:06', 'category': 'tech', 'sentiment': 0.23, 'keyword_mentioned': 'JavaScript', 'message_length': 36}
+2025-02-14 19:52:06.733 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw JavaScript! It was funny.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:52:06', 'category': 'tech', 'sentiment': 0.23, 'keyword_mentioned': 'JavaScript', 'message_length': 36}
+2025-02-14 19:52:06.760 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:52:11.745 | INFO     | __main__:main:177 - {'message': 'I just tried Python! It was exciting.', 'author': 'Eve', 'timestamp': '2025-02-14 19:52:11', 'category': 'tech', 'sentiment': 0.37, 'keyword_mentioned': 'Python', 'message_length': 37}
+2025-02-14 19:52:11.760 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried Python! It was exciting.', 'author': 'Eve', 'timestamp': '2025-02-14 19:52:11', 'category': 'tech', 'sentiment': 0.37, 'keyword_mentioned': 'Python', 'message_length': 37}
+2025-02-14 19:52:11.793 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:52:11.773 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried Python! It was exciting.', 'author': 'Eve', 'timestamp': '2025-02-14 19:52:11', 'category': 'tech', 'sentiment': 0.37, 'keyword_mentioned': 'Python', 'message_length': 37}
+2025-02-14 19:52:16.807 | INFO     | __main__:main:177 - {'message': 'I just saw a meme! It was boring.', 'author': 'Alice', 'timestamp': '2025-02-14 19:52:16', 'category': 'humor', 'sentiment': 0.93, 'keyword_mentioned': 'meme', 'message_length': 33}
+2025-02-14 19:52:16.809 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw a meme! It was boring.', 'author': 'Alice', 'timestamp': '2025-02-14 19:52:16', 'category': 'humor', 'sentiment': 0.93, 'keyword_mentioned': 'meme', 'message_length': 33}
+2025-02-14 19:52:16.812 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw a meme! It was boring.', 'author': 'Alice', 'timestamp': '2025-02-14 19:52:16', 'category': 'humor', 'sentiment': 0.93, 'keyword_mentioned': 'meme', 'message_length': 33}
+2025-02-14 19:52:16.832 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:52:21.815 | INFO     | __main__:main:177 - {'message': 'I just loved JavaScript! It was amazing.', 'author': 'Alice', 'timestamp': '2025-02-14 19:52:21', 'category': 'tech', 'sentiment': 0.73, 'keyword_mentioned': 'JavaScript', 'message_length': 40}
+2025-02-14 19:52:21.820 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved JavaScript! It was amazing.', 'author': 'Alice', 'timestamp': '2025-02-14 19:52:21', 'category': 'tech', 'sentiment': 0.73, 'keyword_mentioned': 'JavaScript', 'message_length': 40}
+2025-02-14 19:52:21.828 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved JavaScript! It was amazing.', 'author': 'Alice', 'timestamp': '2025-02-14 19:52:21', 'category': 'tech', 'sentiment': 0.73, 'keyword_mentioned': 'JavaScript', 'message_length': 40}
+2025-02-14 19:52:21.879 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:52:26.848 | INFO     | __main__:main:177 - {'message': 'I just found an app! It was weird.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:52:26', 'category': 'other', 'sentiment': 0.21, 'keyword_mentioned': 'other', 'message_length': 34}
+2025-02-14 19:52:26.850 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found an app! It was weird.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:52:26', 'category': 'other', 'sentiment': 0.21, 'keyword_mentioned': 'other', 'message_length': 34}
+2025-02-14 19:52:26.854 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found an app! It was weird.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:52:26', 'category': 'other', 'sentiment': 0.21, 'keyword_mentioned': 'other', 'message_length': 34}
+2025-02-14 19:52:26.873 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:52:31.857 | INFO     | __main__:main:177 - {'message': 'I just found game! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:52:31', 'category': 'gaming', 'sentiment': 0.06, 'keyword_mentioned': 'game', 'message_length': 34}
+2025-02-14 19:52:31.858 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found game! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:52:31', 'category': 'gaming', 'sentiment': 0.06, 'keyword_mentioned': 'game', 'message_length': 34}
+2025-02-14 19:52:31.860 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found game! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:52:31', 'category': 'gaming', 'sentiment': 0.06, 'keyword_mentioned': 'game', 'message_length': 34}
+2025-02-14 19:52:31.897 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:52:36.889 | INFO     | __main__:main:177 - {'message': 'I just found Python! It was exciting.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:52:36', 'category': 'tech', 'sentiment': 0.13, 'keyword_mentioned': 'Python', 'message_length': 37}
+2025-02-14 19:52:36.928 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found Python! It was exciting.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:52:36', 'category': 'tech', 'sentiment': 0.13, 'keyword_mentioned': 'Python', 'message_length': 37}
+2025-02-14 19:52:36.988 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:52:36.981 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found Python! It was exciting.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:52:36', 'category': 'tech', 'sentiment': 0.13, 'keyword_mentioned': 'Python', 'message_length': 37}
+2025-02-14 19:52:42.024 | INFO     | __main__:main:177 - {'message': 'I just tried game! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 19:52:42', 'category': 'gaming', 'sentiment': 0.96, 'keyword_mentioned': 'game', 'message_length': 32}
+2025-02-14 19:52:42.027 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried game! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 19:52:42', 'category': 'gaming', 'sentiment': 0.96, 'keyword_mentioned': 'game', 'message_length': 32}
+2025-02-14 19:52:42.051 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:52:42.032 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried game! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 19:52:42', 'category': 'gaming', 'sentiment': 0.96, 'keyword_mentioned': 'game', 'message_length': 32}
+2025-02-14 19:52:47.092 | INFO     | __main__:main:177 - {'message': 'I just found Python! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:52:47', 'category': 'tech', 'sentiment': 0.77, 'keyword_mentioned': 'Python', 'message_length': 37}
+2025-02-14 19:52:47.112 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found Python! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:52:47', 'category': 'tech', 'sentiment': 0.77, 'keyword_mentioned': 'Python', 'message_length': 37}
+2025-02-14 19:52:47.152 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found Python! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:52:47', 'category': 'tech', 'sentiment': 0.77, 'keyword_mentioned': 'Python', 'message_length': 37}
+2025-02-14 19:52:47.178 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:52:52.154 | INFO     | __main__:main:177 - {'message': 'I just tried travel! It was weird.', 'author': 'Bob', 'timestamp': '2025-02-14 19:52:52', 'category': 'travel', 'sentiment': 0.88, 'keyword_mentioned': 'travel', 'message_length': 34}
+2025-02-14 19:52:52.156 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried travel! It was weird.', 'author': 'Bob', 'timestamp': '2025-02-14 19:52:52', 'category': 'travel', 'sentiment': 0.88, 'keyword_mentioned': 'travel', 'message_length': 34}
+2025-02-14 19:52:52.158 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried travel! It was weird.', 'author': 'Bob', 'timestamp': '2025-02-14 19:52:52', 'category': 'travel', 'sentiment': 0.88, 'keyword_mentioned': 'travel', 'message_length': 34}
+2025-02-14 19:52:52.189 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:52:57.163 | INFO     | __main__:main:177 - {'message': 'I just saw a story! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:52:57', 'category': 'other', 'sentiment': 0.24, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:52:57.170 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw a story! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:52:57', 'category': 'other', 'sentiment': 0.24, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:52:57.179 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw a story! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:52:57', 'category': 'other', 'sentiment': 0.24, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:52:57.229 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:53:02.182 | INFO     | __main__:main:177 - {'message': 'I just tried an app! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:53:02', 'category': 'other', 'sentiment': 0.37, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 19:53:02.184 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried an app! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:53:02', 'category': 'other', 'sentiment': 0.37, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 19:53:02.186 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried an app! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:53:02', 'category': 'other', 'sentiment': 0.37, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 19:53:02.208 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:53:07.188 | INFO     | __main__:main:177 - {'message': 'I just tried recipe! It was weird.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:53:07', 'category': 'food', 'sentiment': 0.48, 'keyword_mentioned': 'recipe', 'message_length': 34}
+2025-02-14 19:53:07.190 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried recipe! It was weird.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:53:07', 'category': 'food', 'sentiment': 0.48, 'keyword_mentioned': 'recipe', 'message_length': 34}
+2025-02-14 19:53:07.193 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried recipe! It was weird.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:53:07', 'category': 'food', 'sentiment': 0.48, 'keyword_mentioned': 'recipe', 'message_length': 34}
+2025-02-14 19:53:07.215 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:53:12.199 | INFO     | __main__:main:177 - {'message': 'I just found a trick! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:53:12', 'category': 'other', 'sentiment': 0.37, 'keyword_mentioned': 'other', 'message_length': 37}
+2025-02-14 19:53:12.202 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found a trick! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:53:12', 'category': 'other', 'sentiment': 0.37, 'keyword_mentioned': 'other', 'message_length': 37}
+2025-02-14 19:53:12.206 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found a trick! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:53:12', 'category': 'other', 'sentiment': 0.37, 'keyword_mentioned': 'other', 'message_length': 37}
+2025-02-14 19:53:12.228 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:53:17.209 | INFO     | __main__:main:177 - {'message': 'I just found game! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:53:17', 'category': 'gaming', 'sentiment': 0.58, 'keyword_mentioned': 'game', 'message_length': 34}
+2025-02-14 19:53:17.211 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found game! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:53:17', 'category': 'gaming', 'sentiment': 0.58, 'keyword_mentioned': 'game', 'message_length': 34}
+2025-02-14 19:53:17.213 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found game! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:53:17', 'category': 'gaming', 'sentiment': 0.58, 'keyword_mentioned': 'game', 'message_length': 34}
+2025-02-14 19:53:17.241 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:53:22.216 | INFO     | __main__:main:177 - {'message': 'I just tried recipe! It was funny.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:53:22', 'category': 'food', 'sentiment': 0.13, 'keyword_mentioned': 'recipe', 'message_length': 34}
+2025-02-14 19:53:22.218 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried recipe! It was funny.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:53:22', 'category': 'food', 'sentiment': 0.13, 'keyword_mentioned': 'recipe', 'message_length': 34}
+2025-02-14 19:53:22.220 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried recipe! It was funny.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:53:22', 'category': 'food', 'sentiment': 0.13, 'keyword_mentioned': 'recipe', 'message_length': 34}
+2025-02-14 19:53:22.241 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:53:27.225 | INFO     | __main__:main:177 - {'message': 'I just loved a meme! It was weird.', 'author': 'Eve', 'timestamp': '2025-02-14 19:53:27', 'category': 'humor', 'sentiment': 0.63, 'keyword_mentioned': 'meme', 'message_length': 34}
+2025-02-14 19:53:27.235 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved a meme! It was weird.', 'author': 'Eve', 'timestamp': '2025-02-14 19:53:27', 'category': 'humor', 'sentiment': 0.63, 'keyword_mentioned': 'meme', 'message_length': 34}
+2025-02-14 19:53:27.251 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved a meme! It was weird.', 'author': 'Eve', 'timestamp': '2025-02-14 19:53:27', 'category': 'humor', 'sentiment': 0.63, 'keyword_mentioned': 'meme', 'message_length': 34}
+2025-02-14 19:53:27.273 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:53:32.264 | INFO     | __main__:main:177 - {'message': 'I just shared Python! It was funny.', 'author': 'Bob', 'timestamp': '2025-02-14 19:53:32', 'category': 'tech', 'sentiment': 0.01, 'keyword_mentioned': 'Python', 'message_length': 35}
+2025-02-14 19:53:32.266 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just shared Python! It was funny.', 'author': 'Bob', 'timestamp': '2025-02-14 19:53:32', 'category': 'tech', 'sentiment': 0.01, 'keyword_mentioned': 'Python', 'message_length': 35}
+2025-02-14 19:53:32.269 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just shared Python! It was funny.', 'author': 'Bob', 'timestamp': '2025-02-14 19:53:32', 'category': 'tech', 'sentiment': 0.01, 'keyword_mentioned': 'Python', 'message_length': 35}
+2025-02-14 19:53:32.290 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:53:37.271 | INFO     | __main__:main:177 - {'message': 'I just shared an app! It was weird.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:53:37', 'category': 'other', 'sentiment': 0.94, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 19:53:37.273 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just shared an app! It was weird.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:53:37', 'category': 'other', 'sentiment': 0.94, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 19:53:37.276 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just shared an app! It was weird.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:53:37', 'category': 'other', 'sentiment': 0.94, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 19:53:37.296 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:53:42.279 | INFO     | __main__:main:177 - {'message': 'I just tried a meme! It was weird.', 'author': 'Eve', 'timestamp': '2025-02-14 19:53:42', 'category': 'humor', 'sentiment': 0.99, 'keyword_mentioned': 'meme', 'message_length': 34}
+2025-02-14 19:53:42.282 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried a meme! It was weird.', 'author': 'Eve', 'timestamp': '2025-02-14 19:53:42', 'category': 'humor', 'sentiment': 0.99, 'keyword_mentioned': 'meme', 'message_length': 34}
+2025-02-14 19:53:42.291 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried a meme! It was weird.', 'author': 'Eve', 'timestamp': '2025-02-14 19:53:42', 'category': 'humor', 'sentiment': 0.99, 'keyword_mentioned': 'meme', 'message_length': 34}
+2025-02-14 19:53:42.321 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:53:47.294 | INFO     | __main__:main:177 - {'message': 'I just saw a meme! It was exciting.', 'author': 'Eve', 'timestamp': '2025-02-14 19:53:47', 'category': 'humor', 'sentiment': 0.25, 'keyword_mentioned': 'meme', 'message_length': 35}
+2025-02-14 19:53:47.296 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw a meme! It was exciting.', 'author': 'Eve', 'timestamp': '2025-02-14 19:53:47', 'category': 'humor', 'sentiment': 0.25, 'keyword_mentioned': 'meme', 'message_length': 35}
+2025-02-14 19:53:47.298 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw a meme! It was exciting.', 'author': 'Eve', 'timestamp': '2025-02-14 19:53:47', 'category': 'humor', 'sentiment': 0.25, 'keyword_mentioned': 'meme', 'message_length': 35}
+2025-02-14 19:53:47.333 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:53:52.300 | INFO     | __main__:main:177 - {'message': 'I just saw an app! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 19:53:52', 'category': 'other', 'sentiment': 0.6, 'keyword_mentioned': 'other', 'message_length': 32}
+2025-02-14 19:53:52.302 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw an app! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 19:53:52', 'category': 'other', 'sentiment': 0.6, 'keyword_mentioned': 'other', 'message_length': 32}
+2025-02-14 19:53:52.305 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw an app! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 19:53:52', 'category': 'other', 'sentiment': 0.6, 'keyword_mentioned': 'other', 'message_length': 32}
+2025-02-14 19:53:52.346 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:53:57.308 | INFO     | __main__:main:177 - {'message': 'I just found game! It was boring.', 'author': 'Bob', 'timestamp': '2025-02-14 19:53:57', 'category': 'gaming', 'sentiment': 0.97, 'keyword_mentioned': 'game', 'message_length': 33}
+2025-02-14 19:53:57.310 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found game! It was boring.', 'author': 'Bob', 'timestamp': '2025-02-14 19:53:57', 'category': 'gaming', 'sentiment': 0.97, 'keyword_mentioned': 'game', 'message_length': 33}
+2025-02-14 19:53:57.317 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found game! It was boring.', 'author': 'Bob', 'timestamp': '2025-02-14 19:53:57', 'category': 'gaming', 'sentiment': 0.97, 'keyword_mentioned': 'game', 'message_length': 33}
+2025-02-14 19:53:57.342 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:54:02.326 | INFO     | __main__:main:177 - {'message': 'I just found game! It was funny.', 'author': 'Eve', 'timestamp': '2025-02-14 19:54:02', 'category': 'gaming', 'sentiment': 0.88, 'keyword_mentioned': 'game', 'message_length': 32}
+2025-02-14 19:54:02.327 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found game! It was funny.', 'author': 'Eve', 'timestamp': '2025-02-14 19:54:02', 'category': 'gaming', 'sentiment': 0.88, 'keyword_mentioned': 'game', 'message_length': 32}
+2025-02-14 19:54:02.330 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found game! It was funny.', 'author': 'Eve', 'timestamp': '2025-02-14 19:54:02', 'category': 'gaming', 'sentiment': 0.88, 'keyword_mentioned': 'game', 'message_length': 32}
+2025-02-14 19:54:02.358 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:54:07.362 | INFO     | __main__:main:177 - {'message': 'I just tried game! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:54:07', 'category': 'gaming', 'sentiment': 0.07, 'keyword_mentioned': 'game', 'message_length': 34}
+2025-02-14 19:54:07.373 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried game! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:54:07', 'category': 'gaming', 'sentiment': 0.07, 'keyword_mentioned': 'game', 'message_length': 34}
+2025-02-14 19:54:07.403 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried game! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:54:07', 'category': 'gaming', 'sentiment': 0.07, 'keyword_mentioned': 'game', 'message_length': 34}
+2025-02-14 19:54:07.430 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:54:12.418 | INFO     | __main__:main:177 - {'message': 'I just tried recipe! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:54:12', 'category': 'food', 'sentiment': 0.79, 'keyword_mentioned': 'recipe', 'message_length': 36}
+2025-02-14 19:54:12.422 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried recipe! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:54:12', 'category': 'food', 'sentiment': 0.79, 'keyword_mentioned': 'recipe', 'message_length': 36}
+2025-02-14 19:54:12.427 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried recipe! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:54:12', 'category': 'food', 'sentiment': 0.79, 'keyword_mentioned': 'recipe', 'message_length': 36}
+2025-02-14 19:54:12.460 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:54:17.433 | INFO     | __main__:main:177 - {'message': 'I just found Python! It was amazing.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:54:17', 'category': 'tech', 'sentiment': 0.41, 'keyword_mentioned': 'Python', 'message_length': 36}
+2025-02-14 19:54:17.435 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found Python! It was amazing.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:54:17', 'category': 'tech', 'sentiment': 0.41, 'keyword_mentioned': 'Python', 'message_length': 36}
+2025-02-14 19:54:17.437 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found Python! It was amazing.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:54:17', 'category': 'tech', 'sentiment': 0.41, 'keyword_mentioned': 'Python', 'message_length': 36}
+2025-02-14 19:54:17.470 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:54:22.439 | INFO     | __main__:main:177 - {'message': 'I just shared Python! It was funny.', 'author': 'Alice', 'timestamp': '2025-02-14 19:54:22', 'category': 'tech', 'sentiment': 0.79, 'keyword_mentioned': 'Python', 'message_length': 35}
+2025-02-14 19:54:22.441 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just shared Python! It was funny.', 'author': 'Alice', 'timestamp': '2025-02-14 19:54:22', 'category': 'tech', 'sentiment': 0.79, 'keyword_mentioned': 'Python', 'message_length': 35}
+2025-02-14 19:54:22.444 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just shared Python! It was funny.', 'author': 'Alice', 'timestamp': '2025-02-14 19:54:22', 'category': 'tech', 'sentiment': 0.79, 'keyword_mentioned': 'Python', 'message_length': 35}
+2025-02-14 19:54:22.472 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:54:27.447 | INFO     | __main__:main:177 - {'message': 'I just shared game! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:54:27', 'category': 'gaming', 'sentiment': 0.37, 'keyword_mentioned': 'game', 'message_length': 35}
+2025-02-14 19:54:27.450 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just shared game! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:54:27', 'category': 'gaming', 'sentiment': 0.37, 'keyword_mentioned': 'game', 'message_length': 35}
+2025-02-14 19:54:27.452 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just shared game! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:54:27', 'category': 'gaming', 'sentiment': 0.37, 'keyword_mentioned': 'game', 'message_length': 35}
+2025-02-14 19:54:27.491 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:54:32.457 | INFO     | __main__:main:177 - {'message': 'I just loved an app! It was exciting.', 'author': 'Eve', 'timestamp': '2025-02-14 19:54:32', 'category': 'other', 'sentiment': 0.97, 'keyword_mentioned': 'other', 'message_length': 37}
+2025-02-14 19:54:32.460 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved an app! It was exciting.', 'author': 'Eve', 'timestamp': '2025-02-14 19:54:32', 'category': 'other', 'sentiment': 0.97, 'keyword_mentioned': 'other', 'message_length': 37}
+2025-02-14 19:54:32.462 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved an app! It was exciting.', 'author': 'Eve', 'timestamp': '2025-02-14 19:54:32', 'category': 'other', 'sentiment': 0.97, 'keyword_mentioned': 'other', 'message_length': 37}
+2025-02-14 19:54:32.485 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:54:37.464 | INFO     | __main__:main:177 - {'message': 'I just tried an app! It was funny.', 'author': 'Alice', 'timestamp': '2025-02-14 19:54:37', 'category': 'other', 'sentiment': 0.58, 'keyword_mentioned': 'other', 'message_length': 34}
+2025-02-14 19:54:37.466 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried an app! It was funny.', 'author': 'Alice', 'timestamp': '2025-02-14 19:54:37', 'category': 'other', 'sentiment': 0.58, 'keyword_mentioned': 'other', 'message_length': 34}
+2025-02-14 19:54:37.469 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried an app! It was funny.', 'author': 'Alice', 'timestamp': '2025-02-14 19:54:37', 'category': 'other', 'sentiment': 0.58, 'keyword_mentioned': 'other', 'message_length': 34}
+2025-02-14 19:54:37.496 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:54:42.472 | INFO     | __main__:main:177 - {'message': 'I just found JavaScript! It was exciting.', 'author': 'Eve', 'timestamp': '2025-02-14 19:54:42', 'category': 'tech', 'sentiment': 0.24, 'keyword_mentioned': 'JavaScript', 'message_length': 41}
+2025-02-14 19:54:42.475 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found JavaScript! It was exciting.', 'author': 'Eve', 'timestamp': '2025-02-14 19:54:42', 'category': 'tech', 'sentiment': 0.24, 'keyword_mentioned': 'JavaScript', 'message_length': 41}
+2025-02-14 19:54:42.482 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found JavaScript! It was exciting.', 'author': 'Eve', 'timestamp': '2025-02-14 19:54:42', 'category': 'tech', 'sentiment': 0.24, 'keyword_mentioned': 'JavaScript', 'message_length': 41}
+2025-02-14 19:54:42.505 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:54:47.484 | INFO     | __main__:main:177 - {'message': 'I just saw a story! It was boring.', 'author': 'Eve', 'timestamp': '2025-02-14 19:54:47', 'category': 'other', 'sentiment': 0.26, 'keyword_mentioned': 'other', 'message_length': 34}
+2025-02-14 19:54:47.486 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw a story! It was boring.', 'author': 'Eve', 'timestamp': '2025-02-14 19:54:47', 'category': 'other', 'sentiment': 0.26, 'keyword_mentioned': 'other', 'message_length': 34}
+2025-02-14 19:54:47.491 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw a story! It was boring.', 'author': 'Eve', 'timestamp': '2025-02-14 19:54:47', 'category': 'other', 'sentiment': 0.26, 'keyword_mentioned': 'other', 'message_length': 34}
+2025-02-14 19:54:47.514 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:54:52.495 | INFO     | __main__:main:177 - {'message': 'I just saw JavaScript! It was funny.', 'author': 'Eve', 'timestamp': '2025-02-14 19:54:52', 'category': 'tech', 'sentiment': 0.97, 'keyword_mentioned': 'JavaScript', 'message_length': 36}
+2025-02-14 19:54:52.497 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw JavaScript! It was funny.', 'author': 'Eve', 'timestamp': '2025-02-14 19:54:52', 'category': 'tech', 'sentiment': 0.97, 'keyword_mentioned': 'JavaScript', 'message_length': 36}
+2025-02-14 19:54:52.500 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw JavaScript! It was funny.', 'author': 'Eve', 'timestamp': '2025-02-14 19:54:52', 'category': 'tech', 'sentiment': 0.97, 'keyword_mentioned': 'JavaScript', 'message_length': 36}
+2025-02-14 19:54:52.527 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:54:57.507 | INFO     | __main__:main:177 - {'message': 'I just tried a trick! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 19:54:57', 'category': 'other', 'sentiment': 0.32, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 19:54:57.517 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried a trick! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 19:54:57', 'category': 'other', 'sentiment': 0.32, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 19:54:57.524 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried a trick! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 19:54:57', 'category': 'other', 'sentiment': 0.32, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 19:54:57.561 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:55:02.550 | INFO     | __main__:main:177 - {'message': 'I just found an app! It was funny.', 'author': 'Alice', 'timestamp': '2025-02-14 19:55:02', 'category': 'other', 'sentiment': 0.61, 'keyword_mentioned': 'other', 'message_length': 34}
+2025-02-14 19:55:02.552 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found an app! It was funny.', 'author': 'Alice', 'timestamp': '2025-02-14 19:55:02', 'category': 'other', 'sentiment': 0.61, 'keyword_mentioned': 'other', 'message_length': 34}
+2025-02-14 19:55:02.556 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found an app! It was funny.', 'author': 'Alice', 'timestamp': '2025-02-14 19:55:02', 'category': 'other', 'sentiment': 0.61, 'keyword_mentioned': 'other', 'message_length': 34}
+2025-02-14 19:55:02.576 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:55:07.558 | INFO     | __main__:main:177 - {'message': 'I just found an app! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:55:07', 'category': 'other', 'sentiment': 0.32, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:55:07.561 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found an app! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:55:07', 'category': 'other', 'sentiment': 0.32, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:55:07.568 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found an app! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:55:07', 'category': 'other', 'sentiment': 0.32, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:55:07.602 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:55:12.589 | INFO     | __main__:main:177 - {'message': 'I just saw travel! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:55:12', 'category': 'travel', 'sentiment': 0.38, 'keyword_mentioned': 'travel', 'message_length': 35}
+2025-02-14 19:55:12.591 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw travel! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:55:12', 'category': 'travel', 'sentiment': 0.38, 'keyword_mentioned': 'travel', 'message_length': 35}
+2025-02-14 19:55:12.594 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw travel! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:55:12', 'category': 'travel', 'sentiment': 0.38, 'keyword_mentioned': 'travel', 'message_length': 35}
+2025-02-14 19:55:12.614 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:55:17.597 | INFO     | __main__:main:177 - {'message': 'I just loved a movie! It was boring.', 'author': 'Alice', 'timestamp': '2025-02-14 19:55:17', 'category': 'entertainment', 'sentiment': 0.89, 'keyword_mentioned': 'movie', 'message_length': 36}
+2025-02-14 19:55:17.599 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved a movie! It was boring.', 'author': 'Alice', 'timestamp': '2025-02-14 19:55:17', 'category': 'entertainment', 'sentiment': 0.89, 'keyword_mentioned': 'movie', 'message_length': 36}
+2025-02-14 19:55:17.601 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved a movie! It was boring.', 'author': 'Alice', 'timestamp': '2025-02-14 19:55:17', 'category': 'entertainment', 'sentiment': 0.89, 'keyword_mentioned': 'movie', 'message_length': 36}
+2025-02-14 19:55:17.622 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:55:22.606 | INFO     | __main__:main:177 - {'message': 'I just loved JavaScript! It was weird.', 'author': 'Bob', 'timestamp': '2025-02-14 19:55:22', 'category': 'tech', 'sentiment': 0.48, 'keyword_mentioned': 'JavaScript', 'message_length': 38}
+2025-02-14 19:55:22.608 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved JavaScript! It was weird.', 'author': 'Bob', 'timestamp': '2025-02-14 19:55:22', 'category': 'tech', 'sentiment': 0.48, 'keyword_mentioned': 'JavaScript', 'message_length': 38}
+2025-02-14 19:55:22.609 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved JavaScript! It was weird.', 'author': 'Bob', 'timestamp': '2025-02-14 19:55:22', 'category': 'tech', 'sentiment': 0.48, 'keyword_mentioned': 'JavaScript', 'message_length': 38}
+2025-02-14 19:55:22.630 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:55:27.612 | INFO     | __main__:main:177 - {'message': 'I just saw travel! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:55:27', 'category': 'travel', 'sentiment': 0.41, 'keyword_mentioned': 'travel', 'message_length': 34}
+2025-02-14 19:55:27.615 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw travel! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:55:27', 'category': 'travel', 'sentiment': 0.41, 'keyword_mentioned': 'travel', 'message_length': 34}
+2025-02-14 19:55:27.622 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw travel! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:55:27', 'category': 'travel', 'sentiment': 0.41, 'keyword_mentioned': 'travel', 'message_length': 34}
+2025-02-14 19:55:27.650 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:55:32.628 | INFO     | __main__:main:177 - {'message': 'I just shared a movie! It was amazing.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:55:32', 'category': 'entertainment', 'sentiment': 0.55, 'keyword_mentioned': 'movie', 'message_length': 38}
+2025-02-14 19:55:32.630 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just shared a movie! It was amazing.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:55:32', 'category': 'entertainment', 'sentiment': 0.55, 'keyword_mentioned': 'movie', 'message_length': 38}
+2025-02-14 19:55:32.632 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just shared a movie! It was amazing.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:55:32', 'category': 'entertainment', 'sentiment': 0.55, 'keyword_mentioned': 'movie', 'message_length': 38}
+2025-02-14 19:55:32.680 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:55:37.634 | INFO     | __main__:main:177 - {'message': 'I just saw JavaScript! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:55:37', 'category': 'tech', 'sentiment': 0.57, 'keyword_mentioned': 'JavaScript', 'message_length': 38}
+2025-02-14 19:55:37.636 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw JavaScript! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:55:37', 'category': 'tech', 'sentiment': 0.57, 'keyword_mentioned': 'JavaScript', 'message_length': 38}
+2025-02-14 19:55:37.638 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw JavaScript! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:55:37', 'category': 'tech', 'sentiment': 0.57, 'keyword_mentioned': 'JavaScript', 'message_length': 38}
+2025-02-14 19:55:37.658 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:55:42.641 | INFO     | __main__:main:177 - {'message': 'I just saw JavaScript! It was funny.', 'author': 'Alice', 'timestamp': '2025-02-14 19:55:42', 'category': 'tech', 'sentiment': 0.94, 'keyword_mentioned': 'JavaScript', 'message_length': 36}
+2025-02-14 19:55:42.643 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw JavaScript! It was funny.', 'author': 'Alice', 'timestamp': '2025-02-14 19:55:42', 'category': 'tech', 'sentiment': 0.94, 'keyword_mentioned': 'JavaScript', 'message_length': 36}
+2025-02-14 19:55:42.646 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw JavaScript! It was funny.', 'author': 'Alice', 'timestamp': '2025-02-14 19:55:42', 'category': 'tech', 'sentiment': 0.94, 'keyword_mentioned': 'JavaScript', 'message_length': 36}
+2025-02-14 19:55:42.678 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:55:47.648 | INFO     | __main__:main:177 - {'message': 'I just tried JavaScript! It was exciting.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:55:47', 'category': 'tech', 'sentiment': 0.58, 'keyword_mentioned': 'JavaScript', 'message_length': 41}
+2025-02-14 19:55:47.650 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried JavaScript! It was exciting.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:55:47', 'category': 'tech', 'sentiment': 0.58, 'keyword_mentioned': 'JavaScript', 'message_length': 41}
+2025-02-14 19:55:47.653 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried JavaScript! It was exciting.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:55:47', 'category': 'tech', 'sentiment': 0.58, 'keyword_mentioned': 'JavaScript', 'message_length': 41}
+2025-02-14 19:55:47.680 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:55:52.655 | INFO     | __main__:main:177 - {'message': 'I just found a movie! It was amazing.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:55:52', 'category': 'entertainment', 'sentiment': 0.04, 'keyword_mentioned': 'movie', 'message_length': 37}
+2025-02-14 19:55:52.657 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found a movie! It was amazing.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:55:52', 'category': 'entertainment', 'sentiment': 0.04, 'keyword_mentioned': 'movie', 'message_length': 37}
+2025-02-14 19:55:52.660 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found a movie! It was amazing.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:55:52', 'category': 'entertainment', 'sentiment': 0.04, 'keyword_mentioned': 'movie', 'message_length': 37}
+2025-02-14 19:55:52.681 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:55:57.664 | INFO     | __main__:main:177 - {'message': 'I just found a movie! It was weird.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:55:57', 'category': 'entertainment', 'sentiment': 0.34, 'keyword_mentioned': 'movie', 'message_length': 35}
+2025-02-14 19:55:57.667 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found a movie! It was weird.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:55:57', 'category': 'entertainment', 'sentiment': 0.34, 'keyword_mentioned': 'movie', 'message_length': 35}
+2025-02-14 19:55:57.693 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:55:57.681 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found a movie! It was weird.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:55:57', 'category': 'entertainment', 'sentiment': 0.34, 'keyword_mentioned': 'movie', 'message_length': 35}
+2025-02-14 19:56:02.702 | INFO     | __main__:main:177 - {'message': 'I just shared JavaScript! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 19:56:02', 'category': 'tech', 'sentiment': 0.64, 'keyword_mentioned': 'JavaScript', 'message_length': 39}
+2025-02-14 19:56:02.704 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just shared JavaScript! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 19:56:02', 'category': 'tech', 'sentiment': 0.64, 'keyword_mentioned': 'JavaScript', 'message_length': 39}
+2025-02-14 19:56:02.707 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just shared JavaScript! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 19:56:02', 'category': 'tech', 'sentiment': 0.64, 'keyword_mentioned': 'JavaScript', 'message_length': 39}
+2025-02-14 19:56:02.733 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:56:07.710 | INFO     | __main__:main:177 - {'message': 'I just saw a trick! It was exciting.', 'author': 'Bob', 'timestamp': '2025-02-14 19:56:07', 'category': 'other', 'sentiment': 0.51, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:56:07.718 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw a trick! It was exciting.', 'author': 'Bob', 'timestamp': '2025-02-14 19:56:07', 'category': 'other', 'sentiment': 0.51, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:56:07.735 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw a trick! It was exciting.', 'author': 'Bob', 'timestamp': '2025-02-14 19:56:07', 'category': 'other', 'sentiment': 0.51, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:56:07.759 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:56:12.738 | INFO     | __main__:main:177 - {'message': 'I just saw a movie! It was funny.', 'author': 'Bob', 'timestamp': '2025-02-14 19:56:12', 'category': 'entertainment', 'sentiment': 0.07, 'keyword_mentioned': 'movie', 'message_length': 33}
+2025-02-14 19:56:12.740 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw a movie! It was funny.', 'author': 'Bob', 'timestamp': '2025-02-14 19:56:12', 'category': 'entertainment', 'sentiment': 0.07, 'keyword_mentioned': 'movie', 'message_length': 33}
+2025-02-14 19:56:12.756 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw a movie! It was funny.', 'author': 'Bob', 'timestamp': '2025-02-14 19:56:12', 'category': 'entertainment', 'sentiment': 0.07, 'keyword_mentioned': 'movie', 'message_length': 33}
+2025-02-14 19:56:12.787 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:56:17.766 | INFO     | __main__:main:177 - {'message': 'I just found a meme! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:56:17', 'category': 'humor', 'sentiment': 0.53, 'keyword_mentioned': 'meme', 'message_length': 36}
+2025-02-14 19:56:17.771 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found a meme! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:56:17', 'category': 'humor', 'sentiment': 0.53, 'keyword_mentioned': 'meme', 'message_length': 36}
+2025-02-14 19:56:17.784 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found a meme! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:56:17', 'category': 'humor', 'sentiment': 0.53, 'keyword_mentioned': 'meme', 'message_length': 36}
+2025-02-14 19:56:17.818 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:56:22.790 | INFO     | __main__:main:177 - {'message': 'I just saw recipe! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:56:22', 'category': 'food', 'sentiment': 0.39, 'keyword_mentioned': 'recipe', 'message_length': 35}
+2025-02-14 19:56:22.792 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw recipe! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:56:22', 'category': 'food', 'sentiment': 0.39, 'keyword_mentioned': 'recipe', 'message_length': 35}
+2025-02-14 19:56:22.795 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw recipe! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:56:22', 'category': 'food', 'sentiment': 0.39, 'keyword_mentioned': 'recipe', 'message_length': 35}
+2025-02-14 19:56:22.821 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:56:27.799 | INFO     | __main__:main:177 - {'message': 'I just loved recipe! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:56:27', 'category': 'food', 'sentiment': 0.58, 'keyword_mentioned': 'recipe', 'message_length': 36}
+2025-02-14 19:56:27.802 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved recipe! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:56:27', 'category': 'food', 'sentiment': 0.58, 'keyword_mentioned': 'recipe', 'message_length': 36}
+2025-02-14 19:56:27.813 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved recipe! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:56:27', 'category': 'food', 'sentiment': 0.58, 'keyword_mentioned': 'recipe', 'message_length': 36}
+2025-02-14 19:56:27.856 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:56:32.819 | INFO     | __main__:main:177 - {'message': 'I just loved recipe! It was funny.', 'author': 'Alice', 'timestamp': '2025-02-14 19:56:32', 'category': 'food', 'sentiment': 0.64, 'keyword_mentioned': 'recipe', 'message_length': 34}
+2025-02-14 19:56:32.821 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved recipe! It was funny.', 'author': 'Alice', 'timestamp': '2025-02-14 19:56:32', 'category': 'food', 'sentiment': 0.64, 'keyword_mentioned': 'recipe', 'message_length': 34}
+2025-02-14 19:56:32.823 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved recipe! It was funny.', 'author': 'Alice', 'timestamp': '2025-02-14 19:56:32', 'category': 'food', 'sentiment': 0.64, 'keyword_mentioned': 'recipe', 'message_length': 34}
+2025-02-14 19:56:32.840 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:56:37.826 | INFO     | __main__:main:177 - {'message': 'I just found recipe! It was boring.', 'author': 'Eve', 'timestamp': '2025-02-14 19:56:37', 'category': 'food', 'sentiment': 0.03, 'keyword_mentioned': 'recipe', 'message_length': 35}
+2025-02-14 19:56:37.829 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found recipe! It was boring.', 'author': 'Eve', 'timestamp': '2025-02-14 19:56:37', 'category': 'food', 'sentiment': 0.03, 'keyword_mentioned': 'recipe', 'message_length': 35}
+2025-02-14 19:56:37.833 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found recipe! It was boring.', 'author': 'Eve', 'timestamp': '2025-02-14 19:56:37', 'category': 'food', 'sentiment': 0.03, 'keyword_mentioned': 'recipe', 'message_length': 35}
+2025-02-14 19:56:37.874 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:56:42.837 | INFO     | __main__:main:177 - {'message': 'I just tried a meme! It was boring.', 'author': 'Alice', 'timestamp': '2025-02-14 19:56:42', 'category': 'humor', 'sentiment': 0.36, 'keyword_mentioned': 'meme', 'message_length': 35}
+2025-02-14 19:56:42.839 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried a meme! It was boring.', 'author': 'Alice', 'timestamp': '2025-02-14 19:56:42', 'category': 'humor', 'sentiment': 0.36, 'keyword_mentioned': 'meme', 'message_length': 35}
+2025-02-14 19:56:42.842 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried a meme! It was boring.', 'author': 'Alice', 'timestamp': '2025-02-14 19:56:42', 'category': 'humor', 'sentiment': 0.36, 'keyword_mentioned': 'meme', 'message_length': 35}
+2025-02-14 19:56:42.875 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:56:47.844 | INFO     | __main__:main:177 - {'message': 'I just shared a story! It was funny.', 'author': 'Eve', 'timestamp': '2025-02-14 19:56:47', 'category': 'other', 'sentiment': 0.48, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:56:47.847 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just shared a story! It was funny.', 'author': 'Eve', 'timestamp': '2025-02-14 19:56:47', 'category': 'other', 'sentiment': 0.48, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:56:47.852 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just shared a story! It was funny.', 'author': 'Eve', 'timestamp': '2025-02-14 19:56:47', 'category': 'other', 'sentiment': 0.48, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:56:47.896 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:56:52.857 | INFO     | __main__:main:177 - {'message': 'I just found a meme! It was weird.', 'author': 'Eve', 'timestamp': '2025-02-14 19:56:52', 'category': 'humor', 'sentiment': 0.64, 'keyword_mentioned': 'meme', 'message_length': 34}
+2025-02-14 19:56:52.859 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found a meme! It was weird.', 'author': 'Eve', 'timestamp': '2025-02-14 19:56:52', 'category': 'humor', 'sentiment': 0.64, 'keyword_mentioned': 'meme', 'message_length': 34}
+2025-02-14 19:56:52.861 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found a meme! It was weird.', 'author': 'Eve', 'timestamp': '2025-02-14 19:56:52', 'category': 'humor', 'sentiment': 0.64, 'keyword_mentioned': 'meme', 'message_length': 34}
+2025-02-14 19:56:52.879 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:56:57.870 | INFO     | __main__:main:177 - {'message': 'I just saw a movie! It was weird.', 'author': 'Eve', 'timestamp': '2025-02-14 19:56:57', 'category': 'entertainment', 'sentiment': 0.87, 'keyword_mentioned': 'movie', 'message_length': 33}
+2025-02-14 19:56:57.888 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw a movie! It was weird.', 'author': 'Eve', 'timestamp': '2025-02-14 19:56:57', 'category': 'entertainment', 'sentiment': 0.87, 'keyword_mentioned': 'movie', 'message_length': 33}
+2025-02-14 19:56:57.917 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:56:57.896 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw a movie! It was weird.', 'author': 'Eve', 'timestamp': '2025-02-14 19:56:57', 'category': 'entertainment', 'sentiment': 0.87, 'keyword_mentioned': 'movie', 'message_length': 33}
+2025-02-14 19:57:02.923 | INFO     | __main__:main:177 - {'message': 'I just tried a story! It was exciting.', 'author': 'Bob', 'timestamp': '2025-02-14 19:57:02', 'category': 'other', 'sentiment': 0.46, 'keyword_mentioned': 'other', 'message_length': 38}
+2025-02-14 19:57:02.925 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried a story! It was exciting.', 'author': 'Bob', 'timestamp': '2025-02-14 19:57:02', 'category': 'other', 'sentiment': 0.46, 'keyword_mentioned': 'other', 'message_length': 38}
+2025-02-14 19:57:02.928 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried a story! It was exciting.', 'author': 'Bob', 'timestamp': '2025-02-14 19:57:02', 'category': 'other', 'sentiment': 0.46, 'keyword_mentioned': 'other', 'message_length': 38}
+2025-02-14 19:57:02.954 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:57:07.931 | INFO     | __main__:main:177 - {'message': 'I just tried a trick! It was funny.', 'author': 'Bob', 'timestamp': '2025-02-14 19:57:07', 'category': 'other', 'sentiment': 0.69, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 19:57:07.932 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried a trick! It was funny.', 'author': 'Bob', 'timestamp': '2025-02-14 19:57:07', 'category': 'other', 'sentiment': 0.69, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 19:57:07.934 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried a trick! It was funny.', 'author': 'Bob', 'timestamp': '2025-02-14 19:57:07', 'category': 'other', 'sentiment': 0.69, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 19:57:07.954 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:57:12.936 | INFO     | __main__:main:177 - {'message': 'I just loved a movie! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:57:12', 'category': 'entertainment', 'sentiment': 0.49, 'keyword_mentioned': 'movie', 'message_length': 36}
+2025-02-14 19:57:12.938 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved a movie! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:57:12', 'category': 'entertainment', 'sentiment': 0.49, 'keyword_mentioned': 'movie', 'message_length': 36}
+2025-02-14 19:57:12.941 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved a movie! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:57:12', 'category': 'entertainment', 'sentiment': 0.49, 'keyword_mentioned': 'movie', 'message_length': 36}
+2025-02-14 19:57:12.967 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:57:17.945 | INFO     | __main__:main:177 - {'message': 'I just loved a trick! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:57:17', 'category': 'other', 'sentiment': 0.93, 'keyword_mentioned': 'other', 'message_length': 37}
+2025-02-14 19:57:17.948 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved a trick! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:57:17', 'category': 'other', 'sentiment': 0.93, 'keyword_mentioned': 'other', 'message_length': 37}
+2025-02-14 19:57:17.952 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved a trick! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:57:17', 'category': 'other', 'sentiment': 0.93, 'keyword_mentioned': 'other', 'message_length': 37}
+2025-02-14 19:57:17.985 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:57:22.954 | INFO     | __main__:main:177 - {'message': 'I just tried JavaScript! It was boring.', 'author': 'Eve', 'timestamp': '2025-02-14 19:57:22', 'category': 'tech', 'sentiment': 0.58, 'keyword_mentioned': 'JavaScript', 'message_length': 39}
+2025-02-14 19:57:22.956 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried JavaScript! It was boring.', 'author': 'Eve', 'timestamp': '2025-02-14 19:57:22', 'category': 'tech', 'sentiment': 0.58, 'keyword_mentioned': 'JavaScript', 'message_length': 39}
+2025-02-14 19:57:22.962 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried JavaScript! It was boring.', 'author': 'Eve', 'timestamp': '2025-02-14 19:57:22', 'category': 'tech', 'sentiment': 0.58, 'keyword_mentioned': 'JavaScript', 'message_length': 39}
+2025-02-14 19:57:22.983 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:57:27.965 | INFO     | __main__:main:177 - {'message': 'I just saw a meme! It was exciting.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:57:27', 'category': 'humor', 'sentiment': 0.08, 'keyword_mentioned': 'meme', 'message_length': 35}
+2025-02-14 19:57:27.969 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw a meme! It was exciting.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:57:27', 'category': 'humor', 'sentiment': 0.08, 'keyword_mentioned': 'meme', 'message_length': 35}
+2025-02-14 19:57:27.974 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw a meme! It was exciting.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:57:27', 'category': 'humor', 'sentiment': 0.08, 'keyword_mentioned': 'meme', 'message_length': 35}
+2025-02-14 19:57:28.003 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:57:32.979 | INFO     | __main__:main:177 - {'message': 'I just found a trick! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:57:32', 'category': 'other', 'sentiment': 0.43, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:57:32.981 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found a trick! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:57:32', 'category': 'other', 'sentiment': 0.43, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:57:32.985 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found a trick! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:57:32', 'category': 'other', 'sentiment': 0.43, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:57:33.011 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:57:37.988 | INFO     | __main__:main:177 - {'message': 'I just saw recipe! It was exciting.', 'author': 'Bob', 'timestamp': '2025-02-14 19:57:37', 'category': 'food', 'sentiment': 0.5, 'keyword_mentioned': 'recipe', 'message_length': 35}
+2025-02-14 19:57:37.990 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw recipe! It was exciting.', 'author': 'Bob', 'timestamp': '2025-02-14 19:57:37', 'category': 'food', 'sentiment': 0.5, 'keyword_mentioned': 'recipe', 'message_length': 35}
+2025-02-14 19:57:37.993 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw recipe! It was exciting.', 'author': 'Bob', 'timestamp': '2025-02-14 19:57:37', 'category': 'food', 'sentiment': 0.5, 'keyword_mentioned': 'recipe', 'message_length': 35}
+2025-02-14 19:57:38.015 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:57:42.998 | INFO     | __main__:main:177 - {'message': 'I just loved a trick! It was boring.', 'author': 'Bob', 'timestamp': '2025-02-14 19:57:42', 'category': 'other', 'sentiment': 0.05, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:57:43.000 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved a trick! It was boring.', 'author': 'Bob', 'timestamp': '2025-02-14 19:57:42', 'category': 'other', 'sentiment': 0.05, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:57:43.002 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved a trick! It was boring.', 'author': 'Bob', 'timestamp': '2025-02-14 19:57:42', 'category': 'other', 'sentiment': 0.05, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:57:43.125 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:57:48.006 | INFO     | __main__:main:177 - {'message': 'I just loved Python! It was funny.', 'author': 'Alice', 'timestamp': '2025-02-14 19:57:48', 'category': 'tech', 'sentiment': 0.64, 'keyword_mentioned': 'Python', 'message_length': 34}
+2025-02-14 19:57:48.009 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved Python! It was funny.', 'author': 'Alice', 'timestamp': '2025-02-14 19:57:48', 'category': 'tech', 'sentiment': 0.64, 'keyword_mentioned': 'Python', 'message_length': 34}
+2025-02-14 19:57:48.011 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved Python! It was funny.', 'author': 'Alice', 'timestamp': '2025-02-14 19:57:48', 'category': 'tech', 'sentiment': 0.64, 'keyword_mentioned': 'Python', 'message_length': 34}
+2025-02-14 19:57:48.039 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:57:53.016 | INFO     | __main__:main:177 - {'message': 'I just shared an app! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:57:53', 'category': 'other', 'sentiment': 0.8, 'keyword_mentioned': 'other', 'message_length': 37}
+2025-02-14 19:57:53.022 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just shared an app! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:57:53', 'category': 'other', 'sentiment': 0.8, 'keyword_mentioned': 'other', 'message_length': 37}
+2025-02-14 19:57:53.036 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just shared an app! It was amazing.', 'author': 'Bob', 'timestamp': '2025-02-14 19:57:53', 'category': 'other', 'sentiment': 0.8, 'keyword_mentioned': 'other', 'message_length': 37}
+2025-02-14 19:57:53.073 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:57:58.053 | INFO     | __main__:main:177 - {'message': 'I just found a meme! It was weird.', 'author': 'Bob', 'timestamp': '2025-02-14 19:57:58', 'category': 'humor', 'sentiment': 0.11, 'keyword_mentioned': 'meme', 'message_length': 34}
+2025-02-14 19:57:58.055 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found a meme! It was weird.', 'author': 'Bob', 'timestamp': '2025-02-14 19:57:58', 'category': 'humor', 'sentiment': 0.11, 'keyword_mentioned': 'meme', 'message_length': 34}
+2025-02-14 19:57:58.059 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found a meme! It was weird.', 'author': 'Bob', 'timestamp': '2025-02-14 19:57:58', 'category': 'humor', 'sentiment': 0.11, 'keyword_mentioned': 'meme', 'message_length': 34}
+2025-02-14 19:57:58.089 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:58:03.064 | INFO     | __main__:main:177 - {'message': 'I just tried travel! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 19:58:03', 'category': 'travel', 'sentiment': 0.36, 'keyword_mentioned': 'travel', 'message_length': 34}
+2025-02-14 19:58:03.066 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried travel! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 19:58:03', 'category': 'travel', 'sentiment': 0.36, 'keyword_mentioned': 'travel', 'message_length': 34}
+2025-02-14 19:58:03.069 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried travel! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 19:58:03', 'category': 'travel', 'sentiment': 0.36, 'keyword_mentioned': 'travel', 'message_length': 34}
+2025-02-14 19:58:03.096 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:58:08.071 | INFO     | __main__:main:177 - {'message': 'I just loved recipe! It was boring.', 'author': 'Eve', 'timestamp': '2025-02-14 19:58:08', 'category': 'food', 'sentiment': 0.73, 'keyword_mentioned': 'recipe', 'message_length': 35}
+2025-02-14 19:58:08.073 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved recipe! It was boring.', 'author': 'Eve', 'timestamp': '2025-02-14 19:58:08', 'category': 'food', 'sentiment': 0.73, 'keyword_mentioned': 'recipe', 'message_length': 35}
+2025-02-14 19:58:08.075 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved recipe! It was boring.', 'author': 'Eve', 'timestamp': '2025-02-14 19:58:08', 'category': 'food', 'sentiment': 0.73, 'keyword_mentioned': 'recipe', 'message_length': 35}
+2025-02-14 19:58:08.117 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:58:13.078 | INFO     | __main__:main:177 - {'message': 'I just shared Python! It was exciting.', 'author': 'Eve', 'timestamp': '2025-02-14 19:58:13', 'category': 'tech', 'sentiment': 0.15, 'keyword_mentioned': 'Python', 'message_length': 38}
+2025-02-14 19:58:13.080 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just shared Python! It was exciting.', 'author': 'Eve', 'timestamp': '2025-02-14 19:58:13', 'category': 'tech', 'sentiment': 0.15, 'keyword_mentioned': 'Python', 'message_length': 38}
+2025-02-14 19:58:13.084 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just shared Python! It was exciting.', 'author': 'Eve', 'timestamp': '2025-02-14 19:58:13', 'category': 'tech', 'sentiment': 0.15, 'keyword_mentioned': 'Python', 'message_length': 38}
+2025-02-14 19:58:13.104 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:58:18.086 | INFO     | __main__:main:177 - {'message': 'I just found Python! It was exciting.', 'author': 'Bob', 'timestamp': '2025-02-14 19:58:18', 'category': 'tech', 'sentiment': 0.16, 'keyword_mentioned': 'Python', 'message_length': 37}
+2025-02-14 19:58:18.088 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found Python! It was exciting.', 'author': 'Bob', 'timestamp': '2025-02-14 19:58:18', 'category': 'tech', 'sentiment': 0.16, 'keyword_mentioned': 'Python', 'message_length': 37}
+2025-02-14 19:58:18.091 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found Python! It was exciting.', 'author': 'Bob', 'timestamp': '2025-02-14 19:58:18', 'category': 'tech', 'sentiment': 0.16, 'keyword_mentioned': 'Python', 'message_length': 37}
+2025-02-14 19:58:18.124 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:58:23.097 | INFO     | __main__:main:177 - {'message': 'I just found a story! It was amazing.', 'author': 'Alice', 'timestamp': '2025-02-14 19:58:23', 'category': 'other', 'sentiment': 0.45, 'keyword_mentioned': 'other', 'message_length': 37}
+2025-02-14 19:58:23.100 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found a story! It was amazing.', 'author': 'Alice', 'timestamp': '2025-02-14 19:58:23', 'category': 'other', 'sentiment': 0.45, 'keyword_mentioned': 'other', 'message_length': 37}
+2025-02-14 19:58:23.110 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found a story! It was amazing.', 'author': 'Alice', 'timestamp': '2025-02-14 19:58:23', 'category': 'other', 'sentiment': 0.45, 'keyword_mentioned': 'other', 'message_length': 37}
+2025-02-14 19:58:23.143 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:58:28.113 | INFO     | __main__:main:177 - {'message': 'I just tried a movie! It was funny.', 'author': 'Bob', 'timestamp': '2025-02-14 19:58:28', 'category': 'entertainment', 'sentiment': 0.7, 'keyword_mentioned': 'movie', 'message_length': 35}
+2025-02-14 19:58:28.116 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried a movie! It was funny.', 'author': 'Bob', 'timestamp': '2025-02-14 19:58:28', 'category': 'entertainment', 'sentiment': 0.7, 'keyword_mentioned': 'movie', 'message_length': 35}
+2025-02-14 19:58:28.123 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried a movie! It was funny.', 'author': 'Bob', 'timestamp': '2025-02-14 19:58:28', 'category': 'entertainment', 'sentiment': 0.7, 'keyword_mentioned': 'movie', 'message_length': 35}
+2025-02-14 19:58:28.142 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:58:33.125 | INFO     | __main__:main:177 - {'message': 'I just tried Python! It was weird.', 'author': 'Bob', 'timestamp': '2025-02-14 19:58:33', 'category': 'tech', 'sentiment': 0.65, 'keyword_mentioned': 'Python', 'message_length': 34}
+2025-02-14 19:58:33.127 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried Python! It was weird.', 'author': 'Bob', 'timestamp': '2025-02-14 19:58:33', 'category': 'tech', 'sentiment': 0.65, 'keyword_mentioned': 'Python', 'message_length': 34}
+2025-02-14 19:58:33.130 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried Python! It was weird.', 'author': 'Bob', 'timestamp': '2025-02-14 19:58:33', 'category': 'tech', 'sentiment': 0.65, 'keyword_mentioned': 'Python', 'message_length': 34}
+2025-02-14 19:58:33.158 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:58:38.133 | INFO     | __main__:main:177 - {'message': 'I just loved travel! It was funny.', 'author': 'Alice', 'timestamp': '2025-02-14 19:58:38', 'category': 'travel', 'sentiment': 0.18, 'keyword_mentioned': 'travel', 'message_length': 34}
+2025-02-14 19:58:38.135 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved travel! It was funny.', 'author': 'Alice', 'timestamp': '2025-02-14 19:58:38', 'category': 'travel', 'sentiment': 0.18, 'keyword_mentioned': 'travel', 'message_length': 34}
+2025-02-14 19:58:38.138 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved travel! It was funny.', 'author': 'Alice', 'timestamp': '2025-02-14 19:58:38', 'category': 'travel', 'sentiment': 0.18, 'keyword_mentioned': 'travel', 'message_length': 34}
+2025-02-14 19:58:38.163 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:58:43.141 | INFO     | __main__:main:177 - {'message': 'I just shared a story! It was funny.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:58:43', 'category': 'other', 'sentiment': 0.23, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:58:43.143 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just shared a story! It was funny.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:58:43', 'category': 'other', 'sentiment': 0.23, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:58:43.145 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just shared a story! It was funny.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:58:43', 'category': 'other', 'sentiment': 0.23, 'keyword_mentioned': 'other', 'message_length': 36}
+2025-02-14 19:58:43.168 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:58:48.149 | INFO     | __main__:main:177 - {'message': 'I just loved a meme! It was exciting.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:58:48', 'category': 'humor', 'sentiment': 0.67, 'keyword_mentioned': 'meme', 'message_length': 37}
+2025-02-14 19:58:48.151 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved a meme! It was exciting.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:58:48', 'category': 'humor', 'sentiment': 0.67, 'keyword_mentioned': 'meme', 'message_length': 37}
+2025-02-14 19:58:48.155 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved a meme! It was exciting.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:58:48', 'category': 'humor', 'sentiment': 0.67, 'keyword_mentioned': 'meme', 'message_length': 37}
+2025-02-14 19:58:48.174 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:58:53.157 | INFO     | __main__:main:177 - {'message': 'I just loved Python! It was boring.', 'author': 'Alice', 'timestamp': '2025-02-14 19:58:53', 'category': 'tech', 'sentiment': 0.2, 'keyword_mentioned': 'Python', 'message_length': 35}
+2025-02-14 19:58:53.159 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved Python! It was boring.', 'author': 'Alice', 'timestamp': '2025-02-14 19:58:53', 'category': 'tech', 'sentiment': 0.2, 'keyword_mentioned': 'Python', 'message_length': 35}
+2025-02-14 19:58:53.161 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved Python! It was boring.', 'author': 'Alice', 'timestamp': '2025-02-14 19:58:53', 'category': 'tech', 'sentiment': 0.2, 'keyword_mentioned': 'Python', 'message_length': 35}
+2025-02-14 19:58:53.194 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:58:58.164 | INFO     | __main__:main:177 - {'message': 'I just found a meme! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:58:58', 'category': 'humor', 'sentiment': 0.76, 'keyword_mentioned': 'meme', 'message_length': 37}
+2025-02-14 19:58:58.166 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found a meme! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:58:58', 'category': 'humor', 'sentiment': 0.76, 'keyword_mentioned': 'meme', 'message_length': 37}
+2025-02-14 19:58:58.169 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found a meme! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:58:58', 'category': 'humor', 'sentiment': 0.76, 'keyword_mentioned': 'meme', 'message_length': 37}
+2025-02-14 19:58:58.196 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:59:03.171 | INFO     | __main__:main:177 - {'message': 'I just loved JavaScript! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 19:59:03', 'category': 'tech', 'sentiment': 0.34, 'keyword_mentioned': 'JavaScript', 'message_length': 38}
+2025-02-14 19:59:03.172 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved JavaScript! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 19:59:03', 'category': 'tech', 'sentiment': 0.34, 'keyword_mentioned': 'JavaScript', 'message_length': 38}
+2025-02-14 19:59:03.175 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved JavaScript! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 19:59:03', 'category': 'tech', 'sentiment': 0.34, 'keyword_mentioned': 'JavaScript', 'message_length': 38}
+2025-02-14 19:59:03.205 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:59:08.177 | INFO     | __main__:main:177 - {'message': 'I just loved recipe! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:59:08', 'category': 'food', 'sentiment': 0.31, 'keyword_mentioned': 'recipe', 'message_length': 35}
+2025-02-14 19:59:08.179 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved recipe! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:59:08', 'category': 'food', 'sentiment': 0.31, 'keyword_mentioned': 'recipe', 'message_length': 35}
+2025-02-14 19:59:08.181 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved recipe! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:59:08', 'category': 'food', 'sentiment': 0.31, 'keyword_mentioned': 'recipe', 'message_length': 35}
+2025-02-14 19:59:08.198 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:59:13.183 | INFO     | __main__:main:177 - {'message': 'I just saw JavaScript! It was exciting.', 'author': 'Bob', 'timestamp': '2025-02-14 19:59:13', 'category': 'tech', 'sentiment': 0.27, 'keyword_mentioned': 'JavaScript', 'message_length': 39}
+2025-02-14 19:59:13.185 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw JavaScript! It was exciting.', 'author': 'Bob', 'timestamp': '2025-02-14 19:59:13', 'category': 'tech', 'sentiment': 0.27, 'keyword_mentioned': 'JavaScript', 'message_length': 39}
+2025-02-14 19:59:13.188 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw JavaScript! It was exciting.', 'author': 'Bob', 'timestamp': '2025-02-14 19:59:13', 'category': 'tech', 'sentiment': 0.27, 'keyword_mentioned': 'JavaScript', 'message_length': 39}
+2025-02-14 19:59:13.215 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:59:18.192 | INFO     | __main__:main:177 - {'message': 'I just shared a meme! It was exciting.', 'author': 'Bob', 'timestamp': '2025-02-14 19:59:18', 'category': 'humor', 'sentiment': 0.41, 'keyword_mentioned': 'meme', 'message_length': 38}
+2025-02-14 19:59:18.201 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just shared a meme! It was exciting.', 'author': 'Bob', 'timestamp': '2025-02-14 19:59:18', 'category': 'humor', 'sentiment': 0.41, 'keyword_mentioned': 'meme', 'message_length': 38}
+2025-02-14 19:59:18.209 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just shared a meme! It was exciting.', 'author': 'Bob', 'timestamp': '2025-02-14 19:59:18', 'category': 'humor', 'sentiment': 0.41, 'keyword_mentioned': 'meme', 'message_length': 38}
+2025-02-14 19:59:18.249 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:59:23.212 | INFO     | __main__:main:177 - {'message': 'I just tried travel! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:59:23', 'category': 'travel', 'sentiment': 0.99, 'keyword_mentioned': 'travel', 'message_length': 35}
+2025-02-14 19:59:23.214 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried travel! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:59:23', 'category': 'travel', 'sentiment': 0.99, 'keyword_mentioned': 'travel', 'message_length': 35}
+2025-02-14 19:59:23.219 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried travel! It was boring.', 'author': 'Charlie', 'timestamp': '2025-02-14 19:59:23', 'category': 'travel', 'sentiment': 0.99, 'keyword_mentioned': 'travel', 'message_length': 35}
+2025-02-14 19:59:23.247 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 19:59:28.222 | INFO     | __main__:main:177 - {'message': 'I just found travel! It was weird.', 'author': 'Eve', 'timestamp': '2025-02-14 19:59:28', 'category': 'travel', 'sentiment': 0.51, 'keyword_mentioned': 'travel', 'message_length': 34}
+2025-02-14 19:59:28.224 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found travel! It was weird.', 'author': 'Eve', 'timestamp': '2025-02-14 19:59:28', 'category': 'travel', 'sentiment': 0.51, 'keyword_mentioned': 'travel', 'message_length': 34}
+2025-02-14 19:59:28.226 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found travel! It was weird.', 'author': 'Eve', 'timestamp': '2025-02-14 19:59:28', 'category': 'travel', 'sentiment': 0.51, 'keyword_mentioned': 'travel', 'message_length': 34}
+2025-02-14 19:59:28.244 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:59:33.228 | INFO     | __main__:main:177 - {'message': 'I just found Python! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:59:33', 'category': 'tech', 'sentiment': 0.53, 'keyword_mentioned': 'Python', 'message_length': 37}
+2025-02-14 19:59:33.230 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found Python! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:59:33', 'category': 'tech', 'sentiment': 0.53, 'keyword_mentioned': 'Python', 'message_length': 37}
+2025-02-14 19:59:33.232 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found Python! It was exciting.', 'author': 'Alice', 'timestamp': '2025-02-14 19:59:33', 'category': 'tech', 'sentiment': 0.53, 'keyword_mentioned': 'Python', 'message_length': 37}
+2025-02-14 19:59:33.261 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:59:38.236 | INFO     | __main__:main:177 - {'message': 'I just tried travel! It was amazing.', 'author': 'Alice', 'timestamp': '2025-02-14 19:59:38', 'category': 'travel', 'sentiment': 0.94, 'keyword_mentioned': 'travel', 'message_length': 36}
+2025-02-14 19:59:38.238 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried travel! It was amazing.', 'author': 'Alice', 'timestamp': '2025-02-14 19:59:38', 'category': 'travel', 'sentiment': 0.94, 'keyword_mentioned': 'travel', 'message_length': 36}
+2025-02-14 19:59:38.241 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried travel! It was amazing.', 'author': 'Alice', 'timestamp': '2025-02-14 19:59:38', 'category': 'travel', 'sentiment': 0.94, 'keyword_mentioned': 'travel', 'message_length': 36}
+2025-02-14 19:59:38.269 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 19:59:43.243 | INFO     | __main__:main:177 - {'message': 'I just found Python! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:59:43', 'category': 'tech', 'sentiment': 0.66, 'keyword_mentioned': 'Python', 'message_length': 36}
+2025-02-14 19:59:43.248 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found Python! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:59:43', 'category': 'tech', 'sentiment': 0.66, 'keyword_mentioned': 'Python', 'message_length': 36}
+2025-02-14 19:59:43.257 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found Python! It was amazing.', 'author': 'Eve', 'timestamp': '2025-02-14 19:59:43', 'category': 'tech', 'sentiment': 0.66, 'keyword_mentioned': 'Python', 'message_length': 36}
+2025-02-14 19:59:43.307 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:59:48.272 | INFO     | __main__:main:177 - {'message': 'I just loved an app! It was exciting.', 'author': 'Bob', 'timestamp': '2025-02-14 19:59:48', 'category': 'other', 'sentiment': 0.62, 'keyword_mentioned': 'other', 'message_length': 37}
+2025-02-14 19:59:48.274 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved an app! It was exciting.', 'author': 'Bob', 'timestamp': '2025-02-14 19:59:48', 'category': 'other', 'sentiment': 0.62, 'keyword_mentioned': 'other', 'message_length': 37}
+2025-02-14 19:59:48.276 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved an app! It was exciting.', 'author': 'Bob', 'timestamp': '2025-02-14 19:59:48', 'category': 'other', 'sentiment': 0.62, 'keyword_mentioned': 'other', 'message_length': 37}
+2025-02-14 19:59:48.298 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 19:59:53.279 | INFO     | __main__:main:177 - {'message': 'I just found an app! It was boring.', 'author': 'Eve', 'timestamp': '2025-02-14 19:59:53', 'category': 'other', 'sentiment': 0.72, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 19:59:53.281 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found an app! It was boring.', 'author': 'Eve', 'timestamp': '2025-02-14 19:59:53', 'category': 'other', 'sentiment': 0.72, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 19:59:53.283 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found an app! It was boring.', 'author': 'Eve', 'timestamp': '2025-02-14 19:59:53', 'category': 'other', 'sentiment': 0.72, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 19:59:53.311 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 19:59:58.286 | INFO     | __main__:main:177 - {'message': 'I just tried an app! It was exciting.', 'author': 'Bob', 'timestamp': '2025-02-14 19:59:58', 'category': 'other', 'sentiment': 0.36, 'keyword_mentioned': 'other', 'message_length': 37}
+2025-02-14 19:59:58.292 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried an app! It was exciting.', 'author': 'Bob', 'timestamp': '2025-02-14 19:59:58', 'category': 'other', 'sentiment': 0.36, 'keyword_mentioned': 'other', 'message_length': 37}
+2025-02-14 19:59:58.318 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried an app! It was exciting.', 'author': 'Bob', 'timestamp': '2025-02-14 19:59:58', 'category': 'other', 'sentiment': 0.36, 'keyword_mentioned': 'other', 'message_length': 37}
+2025-02-14 19:59:58.342 | INFO     | __main__:insert_message:55 - Message from Bob inserted successfully.
+2025-02-14 20:00:03.360 | INFO     | __main__:main:177 - {'message': 'I just shared JavaScript! It was exciting.', 'author': 'Eve', 'timestamp': '2025-02-14 20:00:03', 'category': 'tech', 'sentiment': 0.23, 'keyword_mentioned': 'JavaScript', 'message_length': 42}
+2025-02-14 20:00:03.397 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just shared JavaScript! It was exciting.', 'author': 'Eve', 'timestamp': '2025-02-14 20:00:03', 'category': 'tech', 'sentiment': 0.23, 'keyword_mentioned': 'JavaScript', 'message_length': 42}
+2025-02-14 20:00:03.420 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just shared JavaScript! It was exciting.', 'author': 'Eve', 'timestamp': '2025-02-14 20:00:03', 'category': 'tech', 'sentiment': 0.23, 'keyword_mentioned': 'JavaScript', 'message_length': 42}
+2025-02-14 20:00:03.453 | INFO     | __main__:insert_message:55 - Message from Eve inserted successfully.
+2025-02-14 20:00:08.422 | INFO     | __main__:main:177 - {'message': 'I just loved Python! It was weird.', 'author': 'Charlie', 'timestamp': '2025-02-14 20:00:08', 'category': 'tech', 'sentiment': 0.4, 'keyword_mentioned': 'Python', 'message_length': 34}
+2025-02-14 20:00:08.423 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just loved Python! It was weird.', 'author': 'Charlie', 'timestamp': '2025-02-14 20:00:08', 'category': 'tech', 'sentiment': 0.4, 'keyword_mentioned': 'Python', 'message_length': 34}
+2025-02-14 20:00:08.425 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just loved Python! It was weird.', 'author': 'Charlie', 'timestamp': '2025-02-14 20:00:08', 'category': 'tech', 'sentiment': 0.4, 'keyword_mentioned': 'Python', 'message_length': 34}
+2025-02-14 20:00:08.460 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 20:00:13.442 | INFO     | __main__:main:177 - {'message': 'I just found travel! It was funny.', 'author': 'Charlie', 'timestamp': '2025-02-14 20:00:13', 'category': 'travel', 'sentiment': 0.1, 'keyword_mentioned': 'travel', 'message_length': 34}
+2025-02-14 20:00:13.457 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just found travel! It was funny.', 'author': 'Charlie', 'timestamp': '2025-02-14 20:00:13', 'category': 'travel', 'sentiment': 0.1, 'keyword_mentioned': 'travel', 'message_length': 34}
+2025-02-14 20:00:13.480 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just found travel! It was funny.', 'author': 'Charlie', 'timestamp': '2025-02-14 20:00:13', 'category': 'travel', 'sentiment': 0.1, 'keyword_mentioned': 'travel', 'message_length': 34}
+2025-02-14 20:00:13.507 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 20:00:18.483 | INFO     | __main__:main:177 - {'message': 'I just tried a trick! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 20:00:18', 'category': 'other', 'sentiment': 0.03, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 20:00:18.485 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just tried a trick! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 20:00:18', 'category': 'other', 'sentiment': 0.03, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 20:00:18.489 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just tried a trick! It was weird.', 'author': 'Alice', 'timestamp': '2025-02-14 20:00:18', 'category': 'other', 'sentiment': 0.03, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 20:00:18.515 | INFO     | __main__:insert_message:55 - Message from Alice inserted successfully.
+2025-02-14 20:00:23.492 | INFO     | __main__:main:177 - {'message': 'I just saw a trick! It was amazing.', 'author': 'Charlie', 'timestamp': '2025-02-14 20:00:23', 'category': 'other', 'sentiment': 0.39, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 20:00:23.494 | INFO     | __main__:main:181 - STEP 4a Wrote message to file: {'message': 'I just saw a trick! It was amazing.', 'author': 'Charlie', 'timestamp': '2025-02-14 20:00:23', 'category': 'other', 'sentiment': 0.39, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 20:00:23.497 | INFO     | __main__:main:186 - STEP 4b Sent message to Kafka topic 'buzzline': {'message': 'I just saw a trick! It was amazing.', 'author': 'Charlie', 'timestamp': '2025-02-14 20:00:23', 'category': 'other', 'sentiment': 0.39, 'keyword_mentioned': 'other', 'message_length': 35}
+2025-02-14 20:00:23.523 | INFO     | __main__:insert_message:55 - Message from Charlie inserted successfully.
+2025-02-14 20:00:23.524 | INFO     | __main__:consume_messages_from_kafka:121 - All authors have reached 100 messages. Stopping consumer.
+2025-02-14 20:00:23.525 | INFO     | __main__:main:165 - Consumer shutting down.
