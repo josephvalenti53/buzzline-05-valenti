@@ -11,7 +11,7 @@ def init_db():
         cursor = conn.cursor()
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS streamed_messages (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                ROWID INTEGER PRIMARY KEY AUTOINCREMENT,
                 author TEXT,
                 author_count INTEGER,
                 sentiment REAL,
@@ -36,7 +36,7 @@ def insert_message(message, author_count):
 
 # Kafka consumer setup
 topic = "your_kafka_topic"
-kafka_server = "your_kafka_broker_address"
+kafka_server = "localhost:9092"
 consumer = KafkaConsumer(
     topic,
     bootstrap_servers=kafka_server,
