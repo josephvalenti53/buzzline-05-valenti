@@ -92,8 +92,8 @@ python-dotenv
 # KAFKA MESSAGE BROKER INTEGRATION
 # ======================================================
 
+kafka-python
 six
-kafka-python-ng
 
 # ======================================================
 # DATABASE INTEGRATION 
