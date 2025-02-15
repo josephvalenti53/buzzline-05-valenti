@@ -1,8 +1,8 @@
-# buzzline-05-case
+# buzzline-05-valenti
 
 Nearly every streaming analytics system stores processed data somewhere for further analysis, historical reference, or integration with BI tools.
 
-In this example project, we incorporate a relational data store. 
+In this example project, we incorporate a relational data store to find which author has the overall highest sentiment offering in various entertainment 
 We use SQLite, but the example could be altered to work with MySQL, PostgreSQL, or MongoDB.
 
 ## VS Code Extensions
@@ -17,7 +17,7 @@ We use SQLite, but the example could be altered to work with MySQL, PostgreSQL, 
 - SQLite Viewer by Florian Klampfer
 - WSL by Microsoft (on Windows Machines)
 
-## Task 1. Use Tools from Module 1 and 2
+## Task 1. Use Tools from Previous Module 1 and 2
 
 Before starting, ensure you have completed the setup tasks in <https://github.com/denisecase/buzzline-01-case> and <https://github.com/denisecase/buzzline-02-case> first. 
 
@@ -81,7 +81,6 @@ source .venv/bin/activate
 python3 -m producers.producer_case
 ```
 
-The producer will still work if Kafka is not available.
 
 ### Consumer (Terminal 4) - Two Options
 
@@ -96,18 +95,14 @@ Use the commands below to activate .venv, and start the consumer.
 Windows:
 ```shell
 .venv\Scripts\activate
-py -m consumers.kafka_consumer_case
-OR
-py -m consumers.file_consumer_case
+py -m consumers.consumer_valenti
 ```
 
 Mac/Linux:
 ```zsh
 source .venv/bin/activate
-python3 -m consumers.kafka_consumer_case
-OR
-python3 -m consumers.file_consumer_case
-```
+python3 -m consumers.consumer_valenti
+
 
 ---
 
@@ -157,28 +152,6 @@ What files are in the consumers folder?
 - What functions might be needed to insert a message into a different kind of data store?
 
 ---
-
-## Explorations
-
-- Did you run the kafka consumer or the live file consumer? Why?
-- Can you use the examples to add a database to your own streaming applications? 
-- What parts are most interesting to you?
-- What parts are most challenging? 
-
----
-
-## Later Work Sessions
-When resuming work on this project:
-1. Open the folder in VS Code. 
-2. Open a terminal and start the Zookeeper service. If Windows, remember to start wsl. 
-3. Open a terminal and start the Kafka service. If Windows, remember to start wsl. 
-4. Open a terminal to start the producer. Remember to activate your local project virtual environment (.env).
-5. Open a terminal to start the consumer. Remember to activate your local project virtual environment (.env).
-
-## Save Space
-To save disk space, you can delete the .venv folder when not actively working on this project.
-You can always recreate it, activate it, and reinstall the necessary packages later. 
-Managing Python virtual environments is a valuable skill. 
 
 ## License
 This project is licensed under the MIT License as an example project. 
