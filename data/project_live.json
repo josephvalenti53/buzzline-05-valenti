@@ -1,3 +1,18 @@
-{"message": "I just found recipe! It was weird.", "author": "Charlie", "timestamp": "2025-02-13 18:12:02", "category": "food", "sentiment": 0.22, "keyword_mentioned": "recipe", "message_length": 34}
-{"message": "I just saw Python! It was weird.", "author": "Bob", "timestamp": "2025-02-13 18:12:07", "category": "tech", "sentiment": 0.02, "keyword_mentioned": "Python", "message_length": 32}
-{"message": "I just saw an app! It was exciting.", "author": "Bob", "timestamp": "2025-02-13 18:12:12", "category": "other", "sentiment": 0.82, "keyword_mentioned": "other", "message_length": 35}
+{"message": "I just loved a meme! It was funny.", "author": "Alice", "timestamp": "2025-02-14 19:15:05", "category": "humor", "sentiment": 0.06, "keyword_mentioned": "meme", "message_length": 34}
+{"message": "I just tried Python! It was funny.", "author": "Alice", "timestamp": "2025-02-14 19:15:10", "category": "tech", "sentiment": 0.49, "keyword_mentioned": "Python", "message_length": 34}
+{"message": "I just found Python! It was boring.", "author": "Alice", "timestamp": "2025-02-14 19:15:15", "category": "tech", "sentiment": 0.08, "keyword_mentioned": "Python", "message_length": 35}
+{"message": "I just loved an app! It was weird.", "author": "Eve", "timestamp": "2025-02-14 19:15:21", "category": "other", "sentiment": 0.17, "keyword_mentioned": "other", "message_length": 34}
+{"message": "I just found an app! It was boring.", "author": "Alice", "timestamp": "2025-02-14 19:15:26", "category": "other", "sentiment": 0.46, "keyword_mentioned": "other", "message_length": 35}
+{"message": "I just found Python! It was weird.", "author": "Alice", "timestamp": "2025-02-14 19:15:31", "category": "tech", "sentiment": 0.89, "keyword_mentioned": "Python", "message_length": 34}
+{"message": "I just found a meme! It was funny.", "author": "Eve", "timestamp": "2025-02-14 19:15:36", "category": "humor", "sentiment": 0.06, "keyword_mentioned": "meme", "message_length": 34}
+{"message": "I just saw JavaScript! It was exciting.", "author": "Alice", "timestamp": "2025-02-14 19:15:41", "category": "tech", "sentiment": 0.76, "keyword_mentioned": "JavaScript", "message_length": 39}
+{"message": "I just found Python! It was funny.", "author": "Bob", "timestamp": "2025-02-14 19:15:46", "category": "tech", "sentiment": 0.46, "keyword_mentioned": "Python", "message_length": 34}
+{"message": "I just shared travel! It was weird.", "author": "Eve", "timestamp": "2025-02-14 19:15:51", "category": "travel", "sentiment": 0.9, "keyword_mentioned": "travel", "message_length": 35}
+{"message": "I just shared an app! It was exciting.", "author": "Bob", "timestamp": "2025-02-14 19:15:56", "category": "other", "sentiment": 0.21, "keyword_mentioned": "other", "message_length": 38}
+{"message": "I just shared game! It was boring.", "author": "Eve", "timestamp": "2025-02-14 19:16:01", "category": "gaming", "sentiment": 0.25, "keyword_mentioned": "game", "message_length": 34}
+{"message": "I just tried travel! It was weird.", "author": "Eve", "timestamp": "2025-02-14 19:16:06", "category": "travel", "sentiment": 0.9, "keyword_mentioned": "travel", "message_length": 34}
+{"message": "I just shared game! It was funny.", "author": "Bob", "timestamp": "2025-02-14 19:16:11", "category": "gaming", "sentiment": 0.21, "keyword_mentioned": "game", "message_length": 33}
+{"message": "I just loved a trick! It was weird.", "author": "Charlie", "timestamp": "2025-02-14 19:16:16", "category": "other", "sentiment": 0.54, "keyword_mentioned": "other", "message_length": 35}
+{"message": "I just loved a story! It was amazing.", "author": "Alice", "timestamp": "2025-02-14 19:16:21", "category": "other", "sentiment": 0.72, "keyword_mentioned": "other", "message_length": 37}
+{"message": "I just saw game! It was boring.", "author": "Charlie", "timestamp": "2025-02-14 19:16:26", "category": "gaming", "sentiment": 0.82, "keyword_mentioned": "game", "message_length": 31}
+{"message": "I just shared a trick! It was amazing.", "author": "Bob", "timestamp": "2025-02-14 19:16:31", "category": "other", "sentiment": 0.32, "keyword_mentioned": "other", "message_length": 38}
